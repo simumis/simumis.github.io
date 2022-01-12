@@ -16,7 +16,7 @@
 <meta name=application-name content="Simumis">
 <meta name=apple-mobile-web-app-title content="Simumis"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.github.io/posts/deploy-to-github/><link rel=prev href=https://simumis.github.io/posts/hello/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"将Hugo静态网站部署到Github Pages","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/"},"genre":"posts","keywords":"Hugo, Github Pages","wordcount":3395,"url":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/","datePublished":"2022-01-11T18:57:23+08:00","dateModified":"2022-01-11T18:57:23+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.github.io/posts/deploy-to-github/><link rel=prev href=https://simumis.github.io/posts/hello/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"将Hugo静态网站部署到Github Pages","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/"},"genre":"posts","keywords":"Hugo, Github Pages","wordcount":3704,"url":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/","datePublished":"2022-01-11T18:57:23+08:00","dateModified":"2022-01-11T18:57:23+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -57,8 +57,8 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">将Hugo静态网站部署到Github Pages</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>作者</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-11>2022-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3395 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-11>2022-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3704 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -92,6 +92,8 @@
 <li><a href=#52为私有仓库创建-actions-secrets>5.2、为私有仓库创建 <strong>Actions secrets</strong></a></li>
 <li><a href=#53创建-actions>5.3、创建 Actions</a></li>
 <li><a href=#54发布网站>5.4、发布网站</a></li>
+<li><a href=#55网站更新测试>5.5、网站更新测试</a></li>
+<li><a href=#55使用自定义域名>5.5、使用自定义域名</a></li>
 </ul>
 </li>
 </ul>
@@ -220,7 +222,8 @@
   <span class=p>[</span><span class=nx>markup</span><span class=p>.</span><span class=nx>highlight</span><span class=p>]</span>
     <span class=c># false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)</span>
     <span class=nx>noClasses</span> <span class=p>=</span> <span class=kc>false</span>
-</code></pre></div><h3 id=42生成第一篇文章>4.2、生成第一篇文章</h3>
+</code></pre></div><p>最好将配置文件第一行 <strong>baseURL = &ldquo;<a href=http://example.org/%22 target=_blank rel="noopener noreffer">http://example.org/"</a></strong> 的网址更换为本人的网站发布网址 <strong>baseURL = &ldquo;<a href=https://simumis.github.io/%22 target=_blank rel="noopener noreffer">https://simumis.github.io/"</a></strong>。</p>
+<h3 id=42生成第一篇文章>4.2、生成第一篇文章</h3>
 <p>在 <strong>myWebSite</strong> 文件夹执行 <code>hugo new posts/hello.md</code> 命令，在 *<em>myWebSite\content\posts*</em> 生产第一篇文章，按照 Markdown 格式编辑文件，随便输入些内容作为测试。我的第一篇文章是这样的：</p>
 <p><img class=lazyload src=/svg/loading.min.svg data-src=images/13-hugo-hello-edit.png data-srcset="/posts/deploy-to-github/images/13-hugo-hello-edit.png, images/13-hugo-hello-edit.png 1.5x, /posts/deploy-to-github/images/13-hugo-hello-edit.png 2x" data-sizes=auto alt=/posts/deploy-to-github/images/13-hugo-hello-edit.png title=hello></p>
 <p>在 <strong>myWebSite</strong> 文件夹执行 <code>hugo server -D</code> 命令，使用浏览器打开<a href=http://localhost:1313/ target=_blank rel="noopener noreffer">http://localhost:1313/</a>网址，即可看到网站成功运行。</p>
@@ -278,10 +281,19 @@
 </span><span class=w>          </span><span class=nt>personal_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.MY_PAT}}</span><span class=w> </span><span class=c># 如果secret取了其他名称，将MY_PAT替换掉</span><span class=w>
 </span><span class=w>          </span><span class=nt>external_repository</span><span class=p>:</span><span class=w> </span><span class=l>simumis/simumis.github.io</span><span class=w> </span><span class=c># 填写远程仓库，不一定是这个格式，按照自己的情况写 </span><span class=w>
 </span><span class=w>          </span><span class=nt>publish_dir</span><span class=p>:</span><span class=w> </span><span class=l>./public</span><span class=w>
-</span><span class=w>          </span><span class=c>#cname: simumis.com        # 填写你的自定义域名。如果没有用自定义域名，注释掉这行</span><span class=w>
+</span><span class=w>          </span><span class=c>#cname: www.example.com        # 填写你的自定义域名。如果没有用自定义域名，注释掉这行</span><span class=w>
 </span></code></pre></div><h3 id=54发布网站>5.4、发布网站</h3>
 <p>打开 Github Desktop 软件，点击 <strong>Commit to main</strong> 按钮提交所有修改，然后点击 <strong>Push origin</strong> 按钮将修改内容推送到 Github 网站的 myWebSite 仓库，随后触发 Github Actions 自动执行编译、发布功能。待成功后会将生成的网站内容推送到之前创建的公有仓库 <strong>simumis.github.io</strong> 的 <strong>gh_pages</strong> 分支，需要修改公有仓库的 Pages 设置，将发布分支由 <strong>main</strong> 更换为 <strong>gh_pages</strong>。稍候片刻，使用浏览器打开<a href=https://simumis.github.io target=_blank rel="noopener noreffer">https://simumis.github.io</a>，即可正常浏览。</p>
 <p><img class=lazyload src=/svg/loading.min.svg data-src=images/21-github-web-gh-pages.png data-srcset="/posts/deploy-to-github/images/21-github-web-gh-pages.png, images/21-github-web-gh-pages.png 1.5x, /posts/deploy-to-github/images/21-github-web-gh-pages.png 2x" data-sizes=auto alt=/posts/deploy-to-github/images/21-github-web-gh-pages.png title=网站发布测试成功></p>
+<h3 id=55网站更新测试>5.5、网站更新测试</h3>
+<p>在 <strong>myWebSite</strong> 文件夹执行 <code>hugo new posts/poem.md</code> 命令，将新生成的 <strong>poem.md</strong> 文件中的 <strong>draft</strong> 的值由 <strong>true</strong> 改为 <strong>false</strong>，随便贴些内容后，使用 Github Desktop 软件提交并推送，稍微等待 Actions 执行完毕，即可看到网站已经更新。</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=images/22-github-web-add-page.png data-srcset="/posts/deploy-to-github/images/22-github-web-add-page.png, images/22-github-web-add-page.png 1.5x, /posts/deploy-to-github/images/22-github-web-add-page.png 2x" data-sizes=auto alt=/posts/deploy-to-github/images/22-github-web-add-page.png title=网站更新测试成功></p>
+<h3 id=55使用自定义域名>5.5、使用自定义域名</h3>
+<p>本人对于这部分内容纯属小白，所知实属有限，只能在网上搜索资料，依样画葫芦而已。</p>
+<ul>
+<li>购买域名：我是在<a href=https://www.namesilo.com/ target=_blank rel="noopener noreffer">NameSilo</a>上购买的域名，<a href=https://zhuanlan.zhihu.com/p/33921436 target=_blank rel="noopener noreffer">这篇文章</a>介绍的很详细。</li>
+<li>设置 Github Pages 自定义域名：将私有仓库的 Actions 配置文件 <strong>myWebSite.github\workflows\main.yml</strong> 最后一行进行修改，取消cname前的 <strong>#</strong>，后面的网址修改为个人购买的域名 <strong><a href=http://www.simumis.com target=_blank rel="noopener noreffer">www.simumis.com</a></strong>。</li>
+</ul>
 </div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
