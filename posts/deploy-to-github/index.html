@@ -16,7 +16,7 @@
 <meta name=application-name content="Simumis">
 <meta name=apple-mobile-web-app-title content="Simumis"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.github.io/posts/deploy-to-github/><link rel=prev href=https://simumis.github.io/posts/hello/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"将Hugo静态网站部署到Github Pages","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/"},"genre":"posts","keywords":"Hugo, Github Pages","wordcount":3704,"url":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/","datePublished":"2022-01-11T18:57:23+08:00","dateModified":"2022-01-11T18:57:23+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.github.io/posts/deploy-to-github/><link rel=prev href=https://simumis.github.io/posts/hello/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"将Hugo静态网站部署到Github Pages","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/"},"genre":"posts","keywords":"Hugo, Github Pages","wordcount":3773,"url":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/","datePublished":"2022-01-11T18:57:23+08:00","dateModified":"2022-01-11T18:57:23+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -57,7 +57,7 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">将Hugo静态网站部署到Github Pages</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>作者</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-11>2022-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3704 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-11>2022-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3773 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -293,6 +293,7 @@
 <ul>
 <li>购买域名：我是在<a href=https://www.namesilo.com/ target=_blank rel="noopener noreffer">NameSilo</a>上购买的域名，<a href=https://zhuanlan.zhihu.com/p/33921436 target=_blank rel="noopener noreffer">这篇文章</a>介绍的很详细。</li>
 <li>设置 Github Pages 自定义域名：将私有仓库的 Actions 配置文件 <strong>myWebSite.github\workflows\main.yml</strong> 最后一行进行修改，取消cname前的 <strong>#</strong>，后面的网址修改为个人购买的域名 <strong><a href=http://www.simumis.com target=_blank rel="noopener noreffer">www.simumis.com</a></strong>。</li>
+<li>解析域名：在域名服务商网站管理 DNS，添加一条 CNAME 记录，其中 Hostname 部分填写 <em><strong>www</strong></em>， Target Hostname 部分填写 <em><strong>simumis.github.io</strong></em>。等待生效即可。</li>
 </ul>
 </div><div class=post-footer id=post-footer>
 <div class=post-info>
