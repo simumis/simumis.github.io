@@ -16,7 +16,7 @@
 <meta name=application-name content="Simumis">
 <meta name=apple-mobile-web-app-title content="Simumis"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.github.io/posts/deploy-to-github/><link rel=prev href=https://simumis.github.io/posts/test/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"将Hugo静态网站部署到Github Pages","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/"},"genre":"posts","keywords":"Hugo, Github Pages","wordcount":4241,"url":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/","datePublished":"2022-01-11T18:57:23+08:00","dateModified":"2022-01-11T18:57:23+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.github.io/posts/deploy-to-github/><link rel=prev href=https://simumis.github.io/posts/test/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"将Hugo静态网站部署到Github Pages","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/"},"genre":"posts","keywords":"Hugo, Github Pages","wordcount":4226,"url":"https:\/\/simumis.github.io\/posts\/deploy-to-github\/","datePublished":"2022-01-11T18:57:23+08:00","dateModified":"2022-01-11T18:57:23+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -57,7 +57,7 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">将Hugo静态网站部署到Github Pages</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>作者</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-11>2022-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4241 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-11>2022-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4226 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -103,8 +103,8 @@
 <p>最近在学习使用 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer">Hugo</a> 建设静态网站，并发布到 <a href=https://pages.github.com/ target=_blank rel="noopener noreffer">GitHub Pages</a> 上，参考了大量资料，终于初步获得成功。限于个人水平，其间过程颇为曲折，特此记录下整个过程以资备忘。</p>
 <h3 id=01实现的功能>0.1、实现的功能：</h3>
 <ul>
-<li>在 Github 创建两个仓库（repositories），其一为public仓库，用以发布网站；其二为private仓库，用以存储建站资源文件，如配置文档、主题、内容等。</li>
-<li>使用 Markdown 文件编辑网站内容后，push 到 Github 的 private 仓库，然后由 Github Actions 调用Hugo 自动编译并推送到 public 仓库，并最终由 Github 后台发布。</li>
+<li>在 Github 创建两个仓库（repositories），其一为 public 仓库，用以发布网站；其二为 private 仓库，用以存储建站资源文件，如配置文档、主题、内容等。</li>
+<li>使用 Markdown 文件编辑网站内容后，push 到 Github 的 private 仓库，然后由 Github Actions 调用 Hugo 自动编译并推送到 public 仓库，最终由 Github 后台发布。</li>
 <li>使用自定义域名并支持强制使用 HTTPS 访问。</li>
 </ul>
 <h3 id=02使用的资源>0.2、使用的资源</h3>
@@ -347,5 +347,5 @@ Please enable JavaScript to view the comments powered by <a href=https://utteran
 </a><a href=# id=view-comments class=fixed-button title=查看评论>
 <i class="fas fa-comment fa-fw"></i>
 </a>
-</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{utterances:{darkTheme:"github-dark",issueTerm:"pathname",label:"评论",lightTheme:"github-light",repo:"simumis/simumis.github.io"}}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{utterances:{darkTheme:"github-dark",issueTerm:"pathname",label:"评论",lightTheme:"github-light",repo:"simumis/utterance_comment"}}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
 </html>
