@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>水和水蒸气性质计算测试</title>
+		<link rel="stylesheet" type="text/css" href="calc.css">
+		<script src="jif97.js"></script>
+		<script src="calc.js"></script>
+	</head>
+	<body onload="onLoad()">
+		<header>
+			<h1>水和水蒸气性质计算测试</h1>
+			<p>编写者：<a href="mailto:simumis@hotmail.com">Simumis</a></p>
+			<p><a href="/">返回主页</a></p>
+		</header>
+		<hr/>
+		<div class="input">
+			<div>
+				<select id="arg1" onchange="onSelect1(this.value)" class="arg"></select>
+				<input type="text" id="val1" class="val" onkeyup="onCheckValue(this)">
+				<input type="text" id="unit1" readonly="readonly" class="unit" >
+				<br>
+				<select id="arg2" onchange="onSelect2(this.value)" class="arg"></select>
+				<input type="text" id="val2" class="val" onkeyup="onCheckValue(this)">
+				<input type="text" id="unit2" readonly="readonly" class="unit" >
+			</div>
+			<div>
+				<button type="button" class="btn" onclick="onCalc()">计算</button>
+			</div>
+		</div>
+		<br>
+		<div class="res">
+			<table id="results">
+				<tr>
+					<th>序号</th>
+					<th>参数</th>
+					<th>数值</th>
+					<th>单位</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>压力</td>
+					<td id="res_p"></td>
+					<td>MPa</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>温度</td>
+					<td id="res_t"></td>
+					<td>℃</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>比容</td>
+					<td id="res_v"></td>
+					<td>m³/kg</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>内能</td>
+					<td id="res_u"></td>
+					<td>kJ/kg</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>焓</td>
+					<td id="res_h"></td>
+					<td>kJ/kg</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>熵</td>
+					<td id="res_s"></td>
+					<td>kJ/(kg·℃)</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>定容比热</td>
+					<td id="res_cv"></td>
+					<td>kJ/(kg·℃)</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>定压比热</td>
+					<td id="res_cp"></td>
+					<td>kJ/(kg·℃)</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>声速</td>
+					<td id="res_w"></td>
+					<td>m/s</td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td>干度</td>
+					<td id="res_x"></td>
+					<td>kg/kg</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

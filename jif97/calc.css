@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table,td,th{
+    text-align: center;
+    width: 600px;
+    border-collapse:collapse; 
+    border:1px solid green;
+}
+
+header{
+    text-align:center; 
+    background-color:silver; 
+    color: red;
+    align-self: stretch;
+}
+
+footer{
+    text-align: center
+}
+.arg{
+    width: 80px;
+}
+
+.val{
+    width: 100px;
+}
+
+.unit{
+    width: 80px;
+    border:none;
+}
+
+.btn{
+    width: 80px;
+    height: 30px;
+    color: blue;
+}
+
+.res{
+    float: left;
+}
+
+.input{
+    float: left;
+}
