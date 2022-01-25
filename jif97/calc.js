@@ -1,3 +1,4 @@
+"use strict";
 //加载完毕设置第一、第二参数选项列表
 function onLoad() {
     let arg1 = setupSelect1("");

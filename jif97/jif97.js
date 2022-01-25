@@ -4,32 +4,82 @@
 // Licence:     MIT License
 // Reference:   http://www.iapws.org/relguide/IF97-Rev.html
 // Reference:   Wagner, Wolfgang & Kretzschmar, Hans-Joachim. (2008). International Steam Tables. 10.1007/978-3-540-74234-0.
-"use strict"
 
-// Water represents the thermaldynamic properties of ordinary water
-/*
-type Water struct {
-	Rgn int     `json:"rgn"` /// Region (1,2,3,4,5) divied by  IAPWS-IF97
-	P   float64 `json:"p"`   /// Pressure(\f$ Pa \f$) 
-	T   float64 `json:"t"`   /// Absolute Temperature(\f$ K \f$)
-	V   float64 `json:"v"`   /// Specific volume(\f$ m^3/kg \f$)
-	U   float64 `json:"u"`   /// Specific internal energy(\f$ J/kg \f$)
-	H   float64 `json:"h"`   /// Specific enthalpy(\f$ J/kg \f$)
-	S   float64 `json:"s"`   /// Specific entropy(\f$ J/(kg \cdot K) \f$)
-	Cv  float64 `json:"cv"`  /// Specific isochoric heat capacity(\f$ J/(kg \cdot K) \f$)
-	Cp  float64 `json:"cp"`  /// Specific isobaric heat capacity(\f$ J/(kg \cdot K) \f$)
-	W   float64 `json:"w"`   /// Speed of sound(\f$ m/s \f$)
-	X   float64 `json:"x"`   /// Vapor quality(\f$ kg/kg \f$)
-}
-*/
-// Water 
+/** @mainpage 基于 IAPWS IF-97 的水和水蒸气热力性质计算程序
+ * 使用 JavaScript 语言实现国际水和水蒸气性质协会（IAPWS）发布的 IF-97 公式，提供了一系列函数用于性质计算。通常这些函数接受两个输入参数，如果计算成功则返回 Water 对象实例，否则返回 null 值。
+ * 返回的 Water 对象属性代表各项热力性质，且都使用国际单位制存储数据。
+ * <table>
+ * <tr>	<th>序号</th>	<th>属性</th>	<th>含义</th>		<th>单位</th> </tr>
+ * <tr> <td>1</td>		<td>p</td>		<td>压力</td>		<td>Pa</td> </tr>
+ * <tr> <td>2</td>		<td>t</td>		<td>温度</td>		<td>K</td> </tr>
+ * <tr> <td>3</td>		<td>v</td>		<td>比容</td>		<td>m³/kg</td> </tr>
+ * <tr> <td>4</td>		<td>u</td>		<td>比内能</td>		<td>J/kg</td> </tr>
+ * <tr> <td>5</td>		<td>h</td>		<td>比焓</td>		<td>J/kg</td> </tr>
+ * <tr> <td>6</td>		<td>s</td>		<td>比熵</td>		<td>J/(kg.K)</td> </tr>
+ * <tr> <td>7</td>		<td>cv</td>		<td>定容比热</td>	<td>J/(kg.K)</td> </tr>
+ * <tr> <td>8</td>		<td>cp</td>		<td>定压比热</td>	<td>J/(kg.K)</td> </tr>
+ * <tr> <td>9</td>		<td>w</td>		<td>声速</td>		<td>m/s</td> </tr>
+ * <tr> <td>10</td>		<td>x</td>		<td>干度</td>		<td>kg/kg</td> </tr>
+ * </table>
+ *
+ * @section 国际单位制函数
+ * 使用国际单位制的函数以"setup"开头，以"si"结尾，如下所示：
+ * <table>
+ * <tr> <th>序号</th>	<th>名称</th>		<th>参数</th>	<th>单位</th> </tr>
+ * <tr> <td>1</td>		<td>setupPTsi</td>	<td>p,t</td> 	<td>Pa,K</td> </tr>
+ * <tr> <td>2</td>		<td>setupPHsi</td>	<td>p,h</td> 	<td>Pa,J/kg</td> </tr>
+ * <tr> <td>3</td>		<td>setupPSsi</td>	<td>p,s</td> 	<td>Pa,J/(kg.K)</td> </tr>
+ * <tr> <td>4</td>		<td>setupHSsi</td>	<td>h,s</td> 	<td>J/kg,J/(kg.K)</td> </tr>
+ * <tr> <td>5</td>		<td>setupTXsi</td>	<td>t,x</td> 	<td>K,kg/kg</td> </tr>
+ * <tr> <td>6</td>		<td>setupPXsi</td>	<td>p,x</td> 	<td>Pa,kg/kg</td> </tr>
+ * </table>
+ *
+ * @section 常用单位制函数
+ * 另外提供一组函数，名称在上面函数基础上去掉"si"，使用常用单位作为输入，比如：压力单位为 MPa，温度单位为 ℃， 所有含有 J 的均改为 kJ。
+ *
+ * @section props 函数
+ * 为方便使用，提供 props 函数，接受 4 个参数，分别为：arg1-第一输入参数名称，value1-第一输入参数数值，arg2-第二输入参数名称，value2-第二输入参数数值。
+ * props 函数用于计算的两个输入参数组合可以是 "pt", "ph", "ps", "px", "tx" 或 "hs"，其中 "p"代表压力，"t"代表温度，"h"代表比焓，"s"代表比熵，"x"代表干度。
+ * 这些输入参数均采用常用单位制。
+ *
+ * @section 用法
+ * 方便起见，建议使用 props 函数进行计算。两组输入参数的顺序可以互换，计算结果不受影响。
+ * @code 
+ * let p = 20.0； // MPa
+ * let t = 350.0; // ℃
+ * let w = props("p", p, "t", t)；
+ * console.log(w);
+ */
+
+"use strict";
+
+/** Water - 代表水和水蒸气热力性质
+ *
+ * Water.rgn 属性代表 IAPWS IF-97 所划定的分区，取值范围1~5，若为0则表示非法分区。其属性代表各项热力性质，如下表所示：
+ * <table>
+ * <tr>	<th>序号</th>	<th>属性</th>	<th>含义</th>		<th>单位</th> </tr>
+ * <tr> <td>1</td>		<td>p</td>		<td>压力</td>		<td>Pa</td> </tr>
+ * <tr> <td>2</td>		<td>t</td>		<td>温度</td>		<td>K</td> </tr>
+ * <tr> <td>3</td>		<td>v</td>		<td>比容</td>		<td>m³/kg</td> </tr>
+ * <tr> <td>4</td>		<td>u</td>		<td>比内能</td>		<td>J/kg</td> </tr>
+ * <tr> <td>5</td>		<td>h</td>		<td>比焓</td>		<td>J/kg</td> </tr>
+ * <tr> <td>6</td>		<td>s</td>		<td>比熵</td>		<td>J/(kg.K)</td> </tr>
+ * <tr> <td>7</td>		<td>cv</td>		<td>定容比热</td>	<td>J/(kg.K)</td> </tr>
+ * <tr> <td>8</td>		<td>cp</td>		<td>定压比热</td>	<td>J/(kg.K)</td> </tr>
+ * <tr> <td>9</td>		<td>w</td>		<td>声速</td>		<td>m/s</td> </tr>
+ * <tr> <td>10</td>		<td>x</td>		<td>干度</td>		<td>kg/kg</td> </tr>
+ * </table>
+ */ 
 function Water() {
-	// constructor
 	this.rgn = 0;
 }
 
-// setupPTsi calculates the thermaldynamic properties of water by pressure[Pa] and temperature[K]
+/** setupPTsi - Calculate the thermaldynamic properties of water by pressure[Pa] and temperature[K]
+ */
 function setupPTsi(p, t) {
+	if(typeof p != "number" || typeof t != "number") {
+		return null;
+	}
 	let rgn = getRegion_pt(p, t);
 	let w = null;
 	switch (rgn) {
@@ -55,8 +105,12 @@ function setupPTsi(p, t) {
 	return w;
 }
 
-// setupPHsi calculates the thermaldynamic properties of water by pressure[Pa] and enthalpy[J/kg]
+/** setupPHsi calculates the thermaldynamic properties of water by pressure[Pa] and enthalpy[J/kg]
+ */
 function setupPHsi(p, h) {
+	if(typeof p != "number" || typeof h != "number") {
+		return null;
+	}
 	let rgn = getRegion_ph(p, h);
 	let w = null;
 	switch (rgn) {
@@ -109,8 +163,12 @@ function setupPHsi(p, h) {
 	return w;
 }
 
-// setupPSsi calculates the thermaldynamic properties of water by pressure[Pa] and entropy[J/(kg·K)]
+/** setupPSsi calculates the thermaldynamic properties of water by pressure[Pa] and entropy[J/(kg·K)]
+ */
 function setupPSsi(p, s) {
+	if(typeof p != "number" || typeof s != "number") {
+		return null;
+	}
 	let rgn = getRegion_ps(p, s);
 	let w = null;
 	switch (rgn) {
@@ -163,8 +221,12 @@ function setupPSsi(p, s) {
 	return w;
 }
 
-// setupHSsi calculates the thermaldynamic properties of water by enthalpy[J/kg] and entropy[J/(kg·K)]
+/** setupHSsi calculates the thermaldynamic properties of water by enthalpy[J/kg] and entropy[J/(kg·K)]
+ */
 function setupHSsi(h, s) {
+	if(typeof h != "number" || typeof s != "number") {
+		return null;
+	}
 	let rgn = getRegion_hs(h, s);
 	let w = null;
 	switch (rgn) {
@@ -219,8 +281,12 @@ function setupHSsi(h, s) {
 	return w;
 }
 
-// setupTXsi calculates the thermaldynamic properties of water by temperature[K] and vapor quality[kg/kg], region4 only
+/** setupTXsi calculates the thermaldynamic properties of water by temperature[K] and vapor quality[kg/kg], region4 only
+ */
 function setupTXsi(t, x) {
+	if(typeof t != "number" || typeof x != "number") {
+		return null;
+	}
 	let w = null;
 	if (t >= iapws_tmin && t <= iapws_tc) {
 		w = r4(t, x)
@@ -228,8 +294,12 @@ function setupTXsi(t, x) {
 	return w;
 }
 
-// setupPXsi calculates the thermaldynamic properties of water by pressure[Pa] and vapor quality[kg/kg], r4 only
+/** setupPXsi calculates the thermaldynamic properties of water by pressure[Pa] and vapor quality[kg/kg], r4 only
+ */
 function SetupPXsi(p, x) {
+	if(typeof p != "number" || typeof x != "number") {
+		return null;
+	}
 	let w = null;
 	if (p >= iapws_pmin && p <= iapws_pc) {
 		let t = r4Sat_tp(p);
@@ -241,43 +311,55 @@ function SetupPXsi(p, x) {
 	return w;
 }
 
-// setupPT is almost the same as setupPTsi, except for the unit(p[MPa], t[℃])
+/** setupPT is almost the same as setupPTsi, except for the unit(p[MPa], t[℃])
+ */
 function setupPT(p, t) {
 	return setupPTsi(p*1.0e6, t+273.15);
 }
 
-// setupPH is almost the same as setupPHsi, except for the unit(p[MPa], h[kJ/kg])
+/** setupPH is almost the same as setupPHsi, except for the unit(p[MPa], h[kJ/kg])
+ */
 function setupPH(p, h) {
 	return setupPHsi(p*1.0e6, h*1.0e3);
 }
 
-// setupPS is almost the same as setupPSsi, except for the unit(p[Mpa], s[kJ/(kg·℃)])
+/** setupPS is almost the same as setupPSsi, except for the unit(p[Mpa], s[kJ/(kg·℃)])
+ */
 function setupPS(p, s) {
 	return setupPSsi(p*1.0e6, s*1.0e3);
 }
 
-// setupHS is almost the same as setupHSsi, except for the unit(h[kJ/kg], s[kJ/(kg·℃)])
+/** setupHS is almost the same as setupHSsi, except for the unit(h[kJ/kg], s[kJ/(kg·℃)])
+ */
 function setupHS(h, s) {
 	return setupHSsi(h*1.0e3, s*1.0e3);
 }
 
-// setupPX is almost the same as setupPXsi, except for the unit(p[MPa], x[kg/kg])
+/** setupPX is almost the same as setupPXsi, except for the unit(p[MPa], x[kg/kg])
+ */
 function setupPX(p, x) {
 	return setupPXsi(p*1.0e6, x);
 }
 
-// setupTX is almost the same as setupTXsi, except for the unit(T[℃], x[kg/kg])
+/** setupTX is almost the same as setupTXsi, except for the unit(T[℃], x[kg/kg])
+ */
 function setupTX(t, x) {
 	return setupTXsi(t+273.15, x);
 }
 
-// Props calculates the thermaldynamic properties of water by two arguments.
-// The combination of two arguments is one of "pt","ph","ps","px","tx" or "hs".
-// p - pressure [MPa]
-// t - temperature [℃]
-// h - specific enthalpy [kJ/kg]
-// s - specific entropy [kJ/(kg·℃)]
-// x - vapor quality [kg/kg]
+/** props - Calculate the thermaldynamic properties of water by two arguments.
+ * The combination of two arguments is one of "pt","ph","ps","px","tx" or "hs".
+ * p - pressure [MPa]
+ * t - temperature [℃]
+ * h - specific enthalpy [kJ/kg]
+ * s - specific entropy [kJ/(kg·℃)]
+ * x - vapor quality [kg/kg]
+ * \param arg1 - Name of the first argument
+ * \param value1 - Value of the first argument
+ * \param arg2 - Name of the second argument
+ * \param value2 - Value of the second argument
+ * \return Object of Water
+ */
 function props(arg1, value1, arg2, value2) {
 	if(typeof arg1 != "string" || typeof arg2 != "string") {
 		return null;
@@ -380,6 +462,9 @@ const
 
 // Boundary
 function getRegion_pt(p, t) {
+	if(typeof p != "number" || typeof t != "number") {
+		return 0;
+	}
 	let rgn = 0;
 	if (t > iapws_t25 && t <= iapws_tmax && p >= iapws_pmin && p <= iapws_pmax5) {
 		rgn = 5;
@@ -404,7 +489,10 @@ function getRegion_pt(p, t) {
 }
 
 /// Region definition for input p and h
-function getRegion_ph(p, h) {
+function getRegion_ph(p, h) {	
+	if(typeof p != "number" || typeof h != "number") {
+		return 0;
+	}
 	let rgn = 0;
 	if (p >= iapws_pmin && p <= iapws_psat13) {
 		let satT = r4Sat_tp(p);
@@ -463,6 +551,9 @@ function getRegion_ph(p, h) {
 
 /// Region definition for input p and s
 function getRegion_ps(p, s) {
+	if(typeof p != "number" || typeof s != "number") {
+		return 0;
+	}
 	let rgn = 0;
 	if (p >= iapws_pmin && p <= iapws_psat13) {
 		let satT = r4Sat_tp(p);
@@ -521,6 +612,9 @@ function getRegion_ps(p, s) {
 
 /// Region definition for input h and s
 function getRegion_hs(h, s) {
+	if(typeof h != "number" || typeof s != "number") {
+		return 0;
+	}
 	let rgn = 0;
 	// isotherm T=273.15K
 	let h1min = r1(iapws_pmin, iapws_tmin).h; // h(ps(273.15K), 273.15K)
@@ -3383,8 +3477,19 @@ function brent(f /*Zerofunction*/, xa /*float64*/, xb /*float64*/, tol /*float64
 	} // for
 } // function
 
-// fzero
+/** fzero - 求形如 f(x)=0 方程的根
+ * @param f - function，需要求根的方程 f(x)，形式为接受一个number型参数，并返回一个number型值。
+ * @param xa - number，根区间[xa, xb]端点
+ * @param xb - number，根区间[xa, xb]端点
+ * @param tol - number，容差
+ * @param x0 - number，初始值[可选]
+ * @param df - function，f(x)的一阶导函数[可选]
+ * @return 计算出的根
+ */
 function fzero(f, xa, xb, tol, x0=null, df=null) {
+	if(typeof xa != "number" || typeof xb != "number" || typeof tol != "number") {
+		throw new Error("Please check the arguments in fzero.");
+	}
 	let y0, x1, y1;
 	let res;
 
@@ -3412,7 +3517,7 @@ function fzero(f, xa, xb, tol, x0=null, df=null) {
 
 	// Now we shoud use the newton method or secant method.
 	// So we have to get the initial value of x0 (and x1) in necessary.
-	if (x0 == null) {
+	if (x0 == null || typeof x0 !="number") {
 		let dh = 1.0e-1 * (xb - xa);
 		x0 = xa;
 		y0 = f(x0);
