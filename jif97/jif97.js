@@ -1,4 +1,4 @@
-// goif97 - JavaScript Implement of IAPWS IF-97
+// jif97 - JavaScript Implement of IAPWS IF-97
 // Created:     2022-01-18
 // Copyright:   (c) simumis. All rights reserved.
 // Licence:     MIT License
