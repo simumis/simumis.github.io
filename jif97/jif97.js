@@ -296,7 +296,7 @@ function setupTXsi(t, x) {
 
 /** setupPXsi calculates the thermaldynamic properties of water by pressure[Pa] and vapor quality[kg/kg], r4 only
  */
-function SetupPXsi(p, x) {
+function setupPXsi(p, x) {
 	if(typeof p != "number" || typeof x != "number") {
 		return null;
 	}
@@ -1117,9 +1117,6 @@ function r1_pts(t, s) {
 	}
 
 	let res = fzero(f, xa, xb, tolerancem);
-	if (err != null) {
-		return NaN;
-	}
 	return res;
 }
 
@@ -2994,7 +2991,7 @@ function r4_ths(h, s) {
 	}
 	let f = function(t) {
 		let wl = r4(t, 0.0);
-		let v = r4(t, 1.0);
+		let wv = r4(t, 1.0);
 		if (wl == null || wv == null) {
 			return Infinity;
 		}
