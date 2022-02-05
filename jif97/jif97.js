@@ -494,13 +494,14 @@ function getRegion_ph(p, h) {
 		return 0;
 	}
 	let rgn = 0;
+	let eps = 0.001;
+	let hmin = r1(p, iapws_tmin).h * (1.0 - eps);
+	let hmax = r5(p, iapws_tmax).h * (1.0 + eps);
+	let h25 = r2(p, iapws_t25).h * (1.0 + eps);
 	if (p >= iapws_pmin && p <= iapws_psat13) {
 		let satT = r4Sat_tp(p);
 		let h14 = r1(p, satT).h;
 		let h24 = r2(p, satT).h;
-		let h25 = r2(p, iapws_t25).h;
-		let hmin = r1(p, iapws_tmin).h;
-		let hmax = r5(p, iapws_tmax).h;
 		if (h >= hmin && h <= h14) {
 			rgn = 1;
 		} else if (h > h14 && h < h24) {
@@ -511,11 +512,8 @@ function getRegion_ph(p, h) {
 			rgn = 5;
 		}
 	} else if (p > iapws_psat13 && p < iapws_pc) {
-		let hmin = r1(p, iapws_tmin).h;
 		let h13 = r1(p, iapws_t13).h;
 		let h32 = r2(p, boundaryB23_tp(p)).h;
-		let h25 = r2(p, iapws_t25).h;
-		let hmax = r5(p, iapws_tmax).h;
 		if (h >= hmin && h <= h13) {
 			rgn = 1;
 		} else if (h > h13 && h < h32) {
@@ -531,11 +529,8 @@ function getRegion_ph(p, h) {
 			rgn = 5;
 		}
 	} else if (p >= iapws_pc && p <= iapws_pmax) {
-		let hmin = r1(p, iapws_tmin).h;
 		let h13 = r1(p, iapws_t13).h;
 		let h32 = r2(p, boundaryB23_tp(p)).h;
-		let h25 = r2(p, iapws_t25).h;
-		let hmax = r5(p, iapws_tmax).h;
 		if (h >= hmin && h <= h13) {
 			rgn = 1;
 		} else if (h > h13 && h < h32) {
@@ -555,13 +550,14 @@ function getRegion_ps(p, s) {
 		return 0;
 	}
 	let rgn = 0;
+	let eps = 0.001;
+	let smin = r1(p, iapws_tmin).s * (1.0 - eps);
+	let smax = r5(p, iapws_tmax).s * (1.0 + eps);
+	let s25 = r2(p, iapws_t25).s * (1.0 + eps);
 	if (p >= iapws_pmin && p <= iapws_psat13) {
 		let satT = r4Sat_tp(p);
 		let s14 = r1(p, satT).s;
 		let s24 = r2(p, satT).s;
-		let s25 = r2(p, iapws_t25).s;
-		let smin = r1(p, iapws_tmin).s;
-		let smax = r5(p, iapws_tmax).s;
 		if (s >= smin && s <= s14) {
 			rgn = 1;
 		} else if (s > s14 && s < s24) {
@@ -572,11 +568,8 @@ function getRegion_ps(p, s) {
 			rgn = 5;
 		}
 	} else if (p > iapws_psat13 && p < iapws_pc) {
-		let smin = r1(p, iapws_tmin).s;
 		let s13 = r1(p, iapws_t13).s;
 		let s32 = r2(p, boundaryB23_tp(p)).s;
-		let s25 = r2(p, iapws_t25).s;
-		let smax = r5(p, iapws_tmax).s;
 		if (s >= smin && s <= s13) {
 			rgn = 1;
 		} else if (s > s13 && s < s32) {
@@ -592,11 +585,8 @@ function getRegion_ps(p, s) {
 			rgn = 5;
 		}
 	} else if (p >= iapws_pc && p <= iapws_pmax) {
-		let smin = r1(p, iapws_tmin).s;
 		let s13 = r1(p, iapws_t13).s;
 		let s32 = r2(p, boundaryB23_tp(p)).s;
-		let s25 = r2(p, iapws_t25).s;
-		let smax = r5(p, iapws_tmax).s;
 		if (s >= smin && s <= s13) {
 			rgn = 1;
 		} else if (s > s13 && s < s32) {
@@ -1770,25 +1760,23 @@ function r3(d, t) {
 function r3_vpt(p, t) {
 	let v0 = r3Backward_vpt(p, t);
 	var xa, xb;
-
 	if (p >= iapws_pc) {
 		let ta = iapws_t13;
 		xa = r1(p, ta).v;
 		let tb = boundaryB23_tp(p);
 		xb = r2(p, tb).v;
 	} else {
-		let ps = r4Sat_pt(t);
-		if (p >= ps) {
+		let ts = r4Sat_tp(p);
+		if (t < ts) {
 			let ta = iapws_t13;
 			xa = r1(p, ta).v;
-			xb = r3SatLiquid_vt(t);
+			xb = r3SatLiquid_vt(ts);
 		} else {
-			xa = r3SatVapor_vt(t);
+			xa = r3SatVapor_vt(ts);
 			let tb = boundaryB23_tp(p);
 			xb = r2(p, tb).v;
 		}
 	}
-
 	xa = Math.max(0.999*v0, xa);
 	xb = Math.min(1.001*v0, xb);
 	let f = function(v) {
@@ -1855,8 +1843,7 @@ function r3_vph(p, h) {
 
 function r3_tps(p, s) {
 	let t0 = r3Backward_tps(p, s);
-	var xa, xb;
-
+	let xa, xb;
 	if (p >= iapws_pc) {
 		xa = iapws_t13;
 		xb = boundaryB23_tp(p);
@@ -1941,16 +1928,8 @@ function r3_vts(t, s) {
 
 function r3_ths(h, s) {
 	let t0 = r3Backward_ths(h, s);
-	var xa, xb;
-	xb = r3_tps(iapws_pmax, s);
-	let s13s = r1(iapws_psat13, iapws_t13).s;
-
-	if (s <= s13s) {
-		xa = iapws_t13;
-	} else {
-		xa = r3Sat_ts(s);
-	}
-
+	let xa = iapws_t13;
+	let xb = r3_tps(iapws_pmax, s);
 	xa = Math.max(xa, 0.999*t0);
 	xb = Math.min(xb, 1.001*t0);
 	let f = function(t) {
@@ -2004,7 +1983,6 @@ function r3SatVapor_vt(t) {
 	let v0 = r3BackwardSatVapor_vt(t);
 	let xa = 1.0 / iapws_rhoc;
 	let xb = r2(r4Sat_pt(iapws_t13), iapws_t13).v;
-
 	xa = Math.max(xa, 0.999*v0);
 	xb = Math.min(xb, 1.001*v0);
 	let p = r4Sat_pt(t);
@@ -2016,11 +1994,10 @@ function r3SatVapor_vt(t) {
 			return w.p - p;
 		}
 	}
-
 	let res = fzero(f, xa, xb, tolerancek, v0);
 	return res;
 }
-
+/*
 function r3Sat_ts(s) {
 	let xa = iapws_t13;
 	let xb = iapws_tc;
@@ -2041,7 +2018,7 @@ function r3Sat_ts(s) {
 	let res = fzero(f, xa, xb, tolerance);
 	return res
 }
-
+*/
 // Backward Equations
 // Backward Equations T(p,h) - Supp-Tv(ph,ps)3-2014
 function r3Backward_tph(p, h) {
@@ -2873,7 +2850,6 @@ function r3BackwardSatVapor_vt(t) {
 	let p = r4Sat_pt(t);
 	const psat_643 = 21.04336732e6;
 	const psat_385 = 21.90096265e6;
-
 	let subrgn = "";
 
 	if (p > psat_385) {
@@ -2885,7 +2861,8 @@ function r3BackwardSatVapor_vt(t) {
 	} else {
 		subrgn = 't';
 	}
-	return r3Backward_vpt_helper(p, t, subrgn);
+	let res = r3Backward_vpt_helper(p, t, subrgn);
+	return res;
 }
 
 // Basic equation of r3
@@ -3553,4 +3530,113 @@ function fzero(f, xa, xb, tol, x0=null, df=null) {
 		}
 		return secant(f, x0, x1, tol);
 	}
+}
+
+
+/* Test */
+function jif97_test1() {
+	console.log("Test: p-h~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	let pp, tt, eps = 0.0;
+	for(let p=1; p<=100.0; p+=1) {
+		let t_max = 2000.0;
+		if(p>50.0) {
+			t_max = 800.0;
+		}
+		for(let t=10.0; t<=t_max; t+=10) {
+			let w = props("p", p, "t", t);
+			if(w==null) {
+				throw new Error("Check input number~~~");
+			}
+			let h = w.h / 1000.0;
+			let w1 = props("p", p, "h", h);
+			if(w1==null) {
+				console.log("error: ", p, t, h);
+			//	throw new Error("Check input number~~~ again");
+				continue;
+			}
+			let p1 = w1.p / 1.0E6;
+			let t1 = w1.t - 273.15;
+			let e1 = Math.abs((p1-p)/p);
+			let e2 = Math.abs((t1-t)/t);
+			let e = Math.max(e1, e2);
+			if(e>eps) {
+				eps = e;
+				pp = p;
+				tt = t;
+			}
+			console.log(p, t, e);
+		}
+	}
+	console.log("max:", pp, tt, eps);
+}
+
+function jif97_test2() {
+	console.log("Test: p-s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	let pp, tt, eps = 0.0;
+	for(let p=1; p<=100.0; p+=1) {
+		let t_max = 2000.0;
+		if(p>50.0) {
+			t_max = 800.0;
+		}
+		for(let t=10.0; t<=t_max; t+=10) {
+			let w = props("p", p, "t", t);
+			if(w==null) {
+				throw new Error("Check input number~~~");
+			}
+			let s = w.s / 1000.0;
+			let w1 = props("p", p, "s", s);
+			if(w1==null) {
+				console.log("error: ", p, t, s);
+			//	throw new Error("Check input number~~~ again");
+				continue;
+			}
+			let p1 = w1.p / 1.0E6;
+			let t1 = w1.t - 273.15;
+			let e1 = Math.abs((p1-p)/p);
+			let e2 = Math.abs((t1-t)/t);
+			let e = Math.max(e1, e2);
+			if(e>eps) {
+				eps = e;
+				pp = p;
+				tt = t;
+			}
+		}
+	}
+	console.log("max:", pp, tt, eps);
+}
+
+function jif97_test3() {
+	console.log("Test: h-s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	let pp, tt, eps = 0.0;
+	for(let p=1; p<=100.0; p+=1) {
+		let t_max = 2000.0;
+		if(p>50.0) {
+			t_max = 800.0;
+		}
+		for(let t=10.0; t<=t_max; t+=10) {
+			let w = props("p", p, "t", t);
+			if(w==null) {
+				throw new Error("Check input number~~~");
+			}
+			let h = w.h / 1000.0;
+			let s = w.s / 1000.0;
+			let w1 = props("h", h, "s", s);
+			if(w1==null) {
+				console.log("error: ", p, t, h, s);
+			//	throw new Error("Check input number~~~ again");
+				continue;
+			}
+			let p1 = w1.p / 1.0E6;
+			let t1 = w1.t - 273.15;
+			let e1 = Math.abs((p1-p)/p);
+			let e2 = Math.abs((t1-t)/t);
+			let e = Math.max(e1, e2);
+			if(e>eps) {
+				eps = e;
+				pp = p;
+				tt = t;
+			}
+		}
+	}
+	console.log("max:", pp, tt, eps);
 }
