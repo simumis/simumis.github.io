@@ -136,11 +136,12 @@ function onCalc() {
         alert("请检查输入数据是否在有效范围。");
         return;
     }
-    let res = ["p" ,"t", "v", "u", "h", "s", "cv", "cp", "w", "x"];
+    let res = ["rgn","p" ,"t", "v", "u", "h", "s", "cv", "cp", "w", "x"];
     let dat = new Array(res.length);
     // 
     let tbl = document.getElementById("results");
-    for(let i=0; i<res.length; i++) {
+    tbl.rows[1].cells[2].innerHTML = w.rgn.toString();
+    for(let i=1; i<res.length; i++) {
         dat[i] = w[res[i]];
         if(res[i] == "p") {
             dat[i] = dat[i] / 1.0E6;
