@@ -3627,9 +3627,10 @@ function jif97_test3() {
 				continue;
 			}
 			let p1 = w1.p / 1.0E6;
-			let t1 = w1.t - 273.15;
+			let T1 = w1.t;
+			let T = t + 273.15;
 			let e1 = Math.abs((p1-p)/p);
-			let e2 = Math.abs((t1-t)/t);
+			let e2 = Math.abs((T1-T)/T);
 			let e = Math.max(e1, e2);
 			if(e>eps) {
 				eps = e;

@@ -5,8 +5,7 @@ function onLoad() {
     setupSelect2(arg1, "");
 //    jif97_test1();
 //    jif97_test2();
-    jif97_test3();
-//test();
+//    jif97_test3();
 }
 
 // 设置第一个参数选项列表
@@ -153,11 +152,4 @@ function onCalc() {
         tbl.rows[i+1].cells[2].innerHTML = dat[i].toPrecision(6);
     }
 
-}
-
-function test() {
-    for(let s=3.7E3; s<5.2E3; s+=0.1E3) {
-        let t = r3Sat_ts(s);
-        console.log("Test:", s, t);
-    }
 }
