@@ -494,7 +494,7 @@ function getRegion_ph(p, h) {
 		return 0;
 	}
 	let rgn = 0;
-	let eps = 0.001;
+	let eps = 1E-3;
 	let hmin = r1(p, iapws_tmin).h * (1.0 - eps);
 	let hmax = r5(p, iapws_tmax).h * (1.0 + eps);
 	let h25 = r2(p, iapws_t25).h * (1.0 + eps);
@@ -550,7 +550,7 @@ function getRegion_ps(p, s) {
 		return 0;
 	}
 	let rgn = 0;
-	let eps = 0.001;
+	let eps = 1E-3;
 	let smin = r1(p, iapws_tmin).s * (1.0 - eps);
 	let smax = r5(p, iapws_tmax).s * (1.0 + eps);
 	let s25 = r2(p, iapws_t25).s * (1.0 + eps);
@@ -606,10 +606,11 @@ function getRegion_hs(h, s) {
 		return 0;
 	}
 	let rgn = 0;
-	// isotherm T=273.15K
-	let h1min = r1(iapws_pmin, iapws_tmin).h; // h(ps(273.15K), 273.15K)
-	let h1max = r1(iapws_pmax, iapws_tmin).h; // h(100MPa, 273.15k)
-	let smin = r1(iapws_pmax, iapws_tmin).s;  // s(100MPa, 273.15K)
+	let eps = 1E-3;
+	// isotherm T=273.15K 等温线 T=273.15K 上 h,  s的最大最小值。
+	let h1min = r1(iapws_pmin, iapws_tmin).h * (1.0 - eps); // h(ps(273.15K), 273.15K)
+	let h1max = r1(iapws_pmax, iapws_tmin).h * (1.0 + eps); // h(100MPa, 273.15k)
+	let smin = r1(iapws_pmax, iapws_tmin).s * (1.0 + eps);  // s(100MPa, 273.15K)
 	let s1max = 4.7516100567e-1; // s_{max}(273.15K)
 	//
 	let propL = r1(iapws_pmin, iapws_tmin)
@@ -649,16 +650,16 @@ function getRegion_hs(h, s) {
 				}
 			}
 		} else if (h >= h1max) {
-			let hmax = r1(iapws_pmax, r1_tps(iapws_pmax, s)).h;
+			let hmax = r1(iapws_pmax, r1_tps(iapws_pmax, s)).h * (1.0 + eps);
 			if (h <= hmax) {
 				rgn = 1;
 			}
 		}
 	} else if (s >= s1max && s <= iapws_s13_100) {
 		let h14 = boundaryB14_hs(s);
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let t = r1_tps(iapws_pmax, s) - 21.8e-3; // for numeric consistency
-		let hmax = r1(iapws_pmax, t).h
+		let hmax = r1(iapws_pmax, t).h * (1.0 + eps);
 		if (h >= hmin && h < h14) {
 			rgn = 4;
 		} else if (h >= h14 && h <= hmax) {
@@ -666,11 +667,11 @@ function getRegion_hs(h, s) {
 		}
 	} else if (s > iapws_s13_100 && s <= iapws_sl623) {
 		let h14 = boundaryB14_hs(s);
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h13 = boundaryB13_hs(s);
 		let v = r3_vps(iapws_pmax, s) * (1 + 9.6e-5);
 		let t = r3_tps(iapws_pmax, s) - 24.8e-3;
-		let hmax = r3(1.0/v, t).h;
+		let hmax = r3(1.0/v, t).h * (1.0 + eps);
 		if (h >= hmin && h < h14) {
 			rgn = 4;
 		} else if (h >= h14 && h <= h13) {
@@ -679,33 +680,32 @@ function getRegion_hs(h, s) {
 			rgn = 3;
 		}
 	} else if (s > iapws_sl623 && s <= iapws_sc) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h34 = boundaryB3a4_hs(s);
 		let v = r3_vps(iapws_pmax, s) * (1 + 9.6e-5);
 		let t = r3_tps(iapws_pmax, s) - 24.8e-3;
-		let hmax = r3(1.0/v, t).h;
+		let hmax = r3(1.0/v, t).h * (1.0 + eps);
 		if (h >= hmin && h < h34) {
 			rgn = 4;
 		} else if (h >= h34 && h < hmax) {
 			rgn = 3;
 		}
 	} else if (s > iapws_sc && s <= sB23min) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h34 = boundaryB2c3b4_hs(s);
 		let v = r3_vps(iapws_pmax, s) * (1 + 7.7e-5);
 		let t = r3_tps(iapws_pmax, s) - 22.1e-3;
-		let hmax = r3(1.0/v, t).h;
+		let hmax = r3(1.0/v, t).h * (1.0 + eps);
 		if (h >= hmin && h < h34) {
 			rgn = 4;
 		} else if (h >= h34 && h < hmax) {
 			rgn = 3;
 		}
 	} else if (s > sB23min && s < sB23max) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let hs = boundaryB2c3b4_hs(s);
 		let t = r2_tps(iapws_pmax, s) - 19.0e-3;
-		let hmax = r2(iapws_pmax, t).h;
-		/////////////////////////////////////////////////////
+		let hmax = r2(iapws_pmax, t).h * (1.0 + eps);
 		if (h >= hmin && h < hs) {
 			rgn = 4;
 		} else if (h >= hs && h < hB23min) {
@@ -723,42 +723,43 @@ function getRegion_hs(h, s) {
 			rgn = 2;
 		}
 	} else if (s >= sB23max && s < s2bc) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h24 = boundaryB2c3b4_hs(s);
 		let t = r2_tps(iapws_pmax, s) - 19.0e-3;
-		let hmax = r2(iapws_pmax, t).h;
+		let hmax = r2(iapws_pmax, t).h * (1.0 + eps);
 		if (h >= hmin && h < h24) {
 			rgn = 4;
 		} else if (h > h24 && h <= hmax) {
 			rgn = 2;
 		}
 	} else if (s >= s2bc && s < s2pmax) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h24 = boundaryB2ab4_hs(s);
 		let t = r2_tps(iapws_pmax, s) - 6.5e-3;
-		let hmax = r2(iapws_pmax, t).h;
+		let hmax = r2(iapws_pmax, t).h * (1.0 + eps);
 		if (h >= hmin && h < h24) {
 			rgn = 4;
 		} else if (h > h24 && h <= hmax) {
 			rgn = 2;
 		}
 	} else if (s >= s2pmax && s < s25) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h24 = boundaryB2ab4_hs(s);
+		let hmax = h25 * (1.0 + eps);
 		if (h >= hmin && h < h24) {
 			rgn = 4;
 		} else if (h >= h24 && h <= h2pmax) {
 			rgn = 2;
-		} else if (h > h2pmax && h <= h25) {
+		} else if (h > h2pmax && h <= hmax) {
 			let t = r2_ths(h, s) - 9.8e-3;
 			if (t <= iapws_t25) {
 				rgn = 2;
 			}
 		}
 	} else if (s >= s25 && s < s2ab) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h24 = boundaryB2ab4_hs(s);
-		let hmax = r5(iapws_pmax5, r5_tps(iapws_pmax5, s)).h;
+		let hmax = r5(iapws_pmax5, r5_tps(iapws_pmax5, s)).h * (1.0 + eps);
 		if (h >= hmin && h < h24) {
 			rgn = 4;
 		} else if (h >= h24 && h <= h25) {
@@ -774,9 +775,9 @@ function getRegion_hs(h, s) {
 			rgn = 5;
 		}
 	} else if (s >= s2ab && s < s5pmax) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h24 = boundaryB2ab4_hs(s);
-		let hmax = r5(iapws_pmax5, r5_tps(iapws_pmax5, s)).h;
+		let hmax = r5(iapws_pmax5, r5_tps(iapws_pmax5, s)).h * (1.0 + eps);
 		if (h >= hmin && h < h24) {
 			rgn = 4;
 		} else if (h >= h24 && h <= h2pmin) {
@@ -790,7 +791,7 @@ function getRegion_hs(h, s) {
 			rgn = 5;
 		}
 	} else if (s >= s5pmax && s < iapws_sv273) {
-		let hmin = h4pmin;
+		let hmin = h4pmin * (1.0 - eps);
 		let h24 = boundaryB2ab4_hs(s);
 		if (h >= hmin && h < h24) {
 			rgn = 4;
@@ -808,7 +809,7 @@ function getRegion_hs(h, s) {
 			}
 		}
 	} else if (s >= iapws_sv273 && s <= s2pmin) {
-		let hmin = r2(iapws_pmin, r2_tps(iapws_pmin, s)).h;
+		let hmin = r2(iapws_pmin, r2_tps(iapws_pmin, s)).h * (1.0 - eps);
 		if (h >= hmin && h <= h2pmin) {
 			let t = r2_ths(h, s) - 9.7e-3;
 			if (t <= iapws_t25) {
@@ -823,7 +824,7 @@ function getRegion_hs(h, s) {
 			}
 		}
 	} else if (s > s2pmin && s <= s5pmin) {
-		let hmin = r5(iapws_pmin, r5_tps(iapws_pmin, s)).h;
+		let hmin = r5(iapws_pmin, r5_tps(iapws_pmin, s)).h * (1.0 - eps);
 		if (h >= hmin && h <= h2pmin) {
 			let t = r5_ths(h, s);
 			if (t <= iapws_tmax) {
@@ -3564,7 +3565,6 @@ function jif97_test1() {
 				pp = p;
 				tt = t;
 			}
-			console.log(p, t, e);
 		}
 	}
 	console.log("max:", pp, tt, eps);
@@ -3613,7 +3613,7 @@ function jif97_test3() {
 		if(p>50.0) {
 			t_max = 800.0;
 		}
-		for(let t=10.0; t<=t_max; t+=10) {
+		for(let t=0.0; t<=t_max; t+=10) {
 			let w = props("p", p, "t", t);
 			if(w==null) {
 				throw new Error("Check input number~~~");
@@ -3636,6 +3636,7 @@ function jif97_test3() {
 				pp = p;
 				tt = t;
 			}
+			console.log(p,t,e);
 		}
 	}
 	console.log("max:", pp, tt, eps);
