@@ -195,8 +195,8 @@ function setupPSsi(p, s) {
 		if (wl == null || wv == null) {
 			return null;
 		}
-		let sl = w.s;
-		let sv = w.s;
+		let sl = wl.s;
+		let sv = wv.s;
 		if (sl == sv) {
 			w = r4(t, 1.0);
 		} else {
