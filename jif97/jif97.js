@@ -5,8 +5,8 @@
 // Reference:   http://www.iapws.org/relguide/IF97-Rev.html
 // Reference:   Wagner, Wolfgang & Kretzschmar, Hans-Joachim. (2008). International Steam Tables. 10.1007/978-3-540-74234-0.
 
-/** @mainpage 基于 IAPWS IF-97 的水和水蒸气热力性质计算程序
- * 使用 JavaScript 语言实现国际水和水蒸气性质协会（IAPWS）发布的 IF-97 公式，提供了一系列函数用于性质计算。通常这些函数接受两个输入参数，如果计算成功则返回 Water 对象实例，否则返回 null 值。
+/** @mainpage 基于 IAPWS-IF97 的水和水蒸气热力性质计算程序
+ * 使用 JavaScript 语言实现国际水和水蒸气性质协会（IAPWS）发布的 IF97 公式，提供了一系列函数用于性质计算。通常这些函数接受两个输入参数，如果计算成功则返回 Water 对象实例，否则返回 null 值。
  * 返回的 Water 对象属性代表各项热力性质，且都使用国际单位制存储数据。
  * <table>
  * <tr>	<th>序号</th>	<th>属性</th>	<th>含义</th>		<th>单位</th> </tr>
@@ -55,7 +55,7 @@
 
 /** Water - 代表水和水蒸气热力性质
  *
- * Water.rgn 属性代表 IAPWS IF-97 所划定的分区，取值范围1~5，若为0则表示非法分区。其属性代表各项热力性质，如下表所示：
+ * Water.rgn 属性代表 IAPWS-IF97 所划定的分区，取值范围1~5，若为0则表示非法分区。其属性代表各项热力性质，如下表所示：
  * <table>
  * <tr>	<th>序号</th>	<th>属性</th>	<th>含义</th>		<th>单位</th> </tr>
  * <tr> <td>1</td>		<td>p</td>		<td>压力</td>		<td>Pa</td> </tr>

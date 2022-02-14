@@ -1,7 +1,10 @@
+// calc.js - JavaScript for calculation.
+// Created:     2022-01-18
+// Copyright:   (c) simumis. All rights reserved.
+// Licence:     MIT License
 "use strict";
-//加载完毕设置第一、第二参数选项列表
+//设置第一、第二参数选项列表
 //function onLoad() {
-//    let arg1 = setupSelect1("");
     setupSelect2(setupSelect1(""), "");
 //    jif97_test1();
 //    jif97_test2();
