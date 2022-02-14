@@ -16,7 +16,7 @@
 <meta name=application-name content="Simumis">
 <meta name=apple-mobile-web-app-title content="Simumis"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.com/jif97/><link rel=prev href=https://simumis.com/about/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"水和水蒸气热力性质计算测试","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.com\/jif97\/"},"genre":"page","keywords":"Javascript, IAPWS","wordcount":526,"url":"https:\/\/simumis.com\/jif97\/","datePublished":"2022-02-08T23:19:05+08:00","dateModified":"2022-02-14T18:19:05+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.com/jif97/><link rel=prev href=https://simumis.com/about/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"水和水蒸气热力性质计算测试","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.com\/jif97\/"},"genre":"page","keywords":"Javascript, IAPWS","wordcount":619,"url":"https:\/\/simumis.com\/jif97\/","datePublished":"2022-02-08T23:19:05+08:00","dateModified":"2022-02-14T18:19:05+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"作者"},"author":{"@type":"Person","name":"作者"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -118,11 +118,13 @@
 <script src=calc.js></script>
 <p><noscript>抱歉，你的浏览器不支持 JavaScript!</noscript></p>
 <h2 id=相关说明>相关说明：</h2>
+<p>国际水和水蒸气性质协会（The International Association for the Properties of Water and Steam，简称 IAPWS）发布的工业用水和水蒸汽热力性质计算公式 <a href=http://www.iapws.org/relguide/IF97-Rev.html target=_blank rel="noopener noreffer">IAPWS-IF97</a> [IAPWS R7-97(2012)] 在热能动力工程中得到广泛使用，人们用多种编程语言实现了该方程。</p>
 <ol>
-<li>为了适用于静态网站，使用 Javascript 脚本实现了国际水和水蒸气性质协会（The International Association for the Properties of Water and Steam，简称 IAPWS）发布的工业用水和水蒸汽热力性质计算公式 IAPWS-IF97 [IAPWS R7-97(2012)]，这样可以实现客户端计算，服务器端仅负责提供静态文件。</li>
+<li>为了适用于静态网站，使用 Javascript 脚本实现了 <a href=http://www.iapws.org/relguide/IF97-Rev.html target=_blank rel="noopener noreffer">IAPWS-IF97</a> ，这样可以实现客户端计算，而服务器端则仅负责提供静态文件。</li>
 <li>数据有效区域为：当 $0℃ \le t \le 800℃$ 时，$611.213Pa \le p \le 100MPa$；当 $800℃ \lt t \le 2000℃$ 时，$611.213Pa \le p \le 50MPa$。</li>
 <li>个人能力所限，暂不太清楚如何将 markdown 文件和 Javascript 脚本很好结合，编写本页面时在 markdown 文件内嵌入了大量 HTML 代码，不是很理想。</li>
 <li>使用方法比较简单，在数据输入区选择相应的参数组合，输入有效数值后点击“计算”按钮，即可在结果区查看计算结果。如果输入有误，则会弹出提示信息。需要说明的是“x-干度”参数，它仅适用于饱和蒸汽区，代表每千克湿蒸汽中含有干饱和蒸汽的质量，取值范围为 [0-1]。</li>
+<li>当处于湿蒸汽区时，不太清楚如何计算声速 w，因此仅以 “<em><strong>NaN</strong></em>”（代表 Not a Number） 显示；而对于其它区，干度 x 没有意义，也以 “<em><strong>NaN</strong></em>” 显示。</li>
 <li>本文所实现的 Javascript 脚本 “<em><strong>jif97.js</strong></em>” 和 “<em><strong>calc.js</strong></em>” 使用 <a href=https://opensource.org/licenses/mit-license.php target=_blank rel="noopener noreffer">MIT协议</a>。</li>
 </ol>
 </div><div id=comments><div id=utterances></div><noscript>
