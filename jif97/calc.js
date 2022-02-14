@@ -1,12 +1,12 @@
 "use strict";
 //加载完毕设置第一、第二参数选项列表
-function onLoad() {
-    let arg1 = setupSelect1("");
-    setupSelect2(arg1, "");
+//function onLoad() {
+//    let arg1 = setupSelect1("");
+    setupSelect2(setupSelect1(""), "");
 //    jif97_test1();
 //    jif97_test2();
 //    jif97_test3();
-}
+//}
 
 // 设置第一个参数选项列表
 function setupSelect1(arg1="") {
