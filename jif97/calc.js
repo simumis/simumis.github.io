@@ -3,14 +3,7 @@
 // Copyright:   (c) simumis. All rights reserved.
 // Licence:     MIT License
 "use strict";
-//设置第一、第二参数选项列表
-//function onLoad() {
-    setupSelect2(setupSelect1(""), "");
-//    jif97_test1();
-//    jif97_test2();
-//    jif97_test3();
-//}
-
+setupSelect2(setupSelect1(""), "");
 // 设置第一个参数选项列表
 function setupSelect1(arg1="") {
     // 获取第一个参数的选择控件
@@ -134,7 +127,7 @@ function onCalc() {
     let arg2 = document.getElementById("arg2").value;
     let v2 = document.getElementById("val2").value;
     let val2 = parseFloat(v2);
-    let w = props(arg1, val1, arg2, val2);
+    let w = jif97.props(arg1, val1, arg2, val2);
     if(w==null) {
         alert("请检查输入数据是否在有效范围。");
         return;

@@ -47,10 +47,10 @@
  * @code 
  * let p = 20.0； // MPa
  * let t = 350.0; // ℃
- * let w = props("p", p, "t", t)；
+ * let w = jif97.props("p", p, "t", t)；
  * console.log(w);
  */
-
+let jif97 = (function(){
 "use strict";
 
 /** Water - 代表水和水蒸气热力性质
@@ -3642,3 +3642,21 @@ function jif97_test3() {
 	}
 	console.log("max:", pp, tt, eps);
 }
+
+return {
+	Water: Water,
+	props: props,
+	setupPT: setupPT,
+	setupPH: setupPH,
+	setupPS: setupPS,
+	setupHS: setupHS,
+	setupPX: setupPX,
+	setupTX: setupTX,
+	setupPTsi: setupPTsi,
+	setupPHsi: setupPHsi,
+	setupPSsi: setupPSsi,
+	setupHSsi: setupHSsi,
+	setupPXsi: setupPXsi,
+	setupTXsi: setupTXsi,
+}
+})();
