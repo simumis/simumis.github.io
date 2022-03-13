@@ -183,6 +183,8 @@ function showColors(colorSystem, tableId) {
         tr.appendChild(td);
         td.innerHTML = item;
     }
+    tr.style.textAlign = "center";
+    tr.style.fontWeight = "bold"
     // 设置表格体
     let tbody = document.createElement("tbody");
     table.appendChild(tbody);
