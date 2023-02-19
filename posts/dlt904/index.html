@@ -1,0 +1,853 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>《火力发电厂技术经济指标计算方法》学习记录 - Simumis</title><meta name=Description content><meta property="og:title" content="《火力发电厂技术经济指标计算方法》学习记录">
+<meta property="og:description" content="《火力发电厂技术经济指标计算方法》（DL/T 904-2015）规定了火力发电厂技术经济指标的计算方法，列出了诸多计算公式。学习过程中深感公式">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://simumis.com/posts/dlt904/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-02-02T15:29:34+08:00">
+<meta property="article:modified_time" content="2023-02-02T15:29:34+08:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="《火力发电厂技术经济指标计算方法》学习记录">
+<meta name=twitter:description content="《火力发电厂技术经济指标计算方法》（DL/T 904-2015）规定了火力发电厂技术经济指标的计算方法，列出了诸多计算公式。学习过程中深感公式">
+<meta name=application-name content="Simumis">
+<meta name=apple-mobile-web-app-title content="Simumis"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.com/posts/dlt904/><link rel=prev href=https://simumis.com/posts/colors/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"《火力发电厂技术经济指标计算方法》学习记录","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.com\/posts\/dlt904\/"},"genre":"posts","keywords":"火电厂, 经济指标","wordcount":10894,"url":"https:\/\/simumis.com\/posts\/dlt904\/","datePublished":"2023-02-02T15:29:34+08:00","dateModified":"2023-02-02T15:29:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Simumis"},"author":{"@type":"Person","name":"Simumis"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=Simumis>Simumis</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/ title=显示文章><i class="fas fa-bookmark"></i> 文章 </a><a class=menu-item href=/tags/ title=显示所有标签><i class="fas fa-tags"></i> 标签 </a><a class=menu-item href=/categories/ title=显示分类><i class="fas fa-archive"></i> 分类 </a><a class=menu-item href=/about/ title=关于我><i class="fas fa-user"></i> 关于 </a><a class=menu-item href=/jif97/ title=计算水和水蒸气热力性质><i class="fas fa-calculator"></i> 水蒸气性质计算 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=Simumis>Simumis</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title=显示文章><i class="fas fa-bookmark"></i>文章</a><a class=menu-item href=/tags/ title=显示所有标签><i class="fas fa-tags"></i>标签</a><a class=menu-item href=/categories/ title=显示分类><i class="fas fa-archive"></i>分类</a><a class=menu-item href=/about/ title=关于我><i class="fas fa-user"></i>关于</a><a class=menu-item href=/jif97/ title=计算水和水蒸气热力性质><i class="fas fa-calculator"></i>水蒸气性质计算</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">《火力发电厂技术经济指标计算方法》学习记录</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Simumis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E5%AD%A6%E4%B9%A0/><i class="far fa-folder fa-fw"></i>学习</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2023-02-02>2023-02-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10894 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 22 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#1燃料技术经济指标>1、燃料技术经济指标</a>
+<ul>
+<li><a href=#11收入燃料量>1.1、收入燃料量</a></li>
+<li><a href=#12燃料耗用量>1.2、燃料耗用量</a></li>
+<li><a href=#13燃料库存量>1.3、燃料库存量</a></li>
+<li><a href=#14燃料检斤量检斤率过衡率>1.4、燃料检斤量、检斤率、过衡率</a></li>
+<li><a href=#15燃料运损率>1.5、燃料运损率</a></li>
+<li><a href=#16燃料盈吨量盈吨率>1.6、燃料盈吨量、盈吨率</a></li>
+<li><a href=#17燃料亏吨量亏吨率>1.7、燃料亏吨量、亏吨率</a></li>
+<li><a href=#18煤场存损率>1.8、煤场存损率</a></li>
+<li><a href=#19燃料盘点库存量>1.9、燃料盘点库存量</a></li>
+<li><a href=#110燃料盘点盈亏量>1.10、燃料盘点盈亏量</a></li>
+<li><a href=#111燃料检质率>1.11、燃料检质率</a></li>
+<li><a href=#112煤炭质级不符率>1.12、煤炭质级不符率</a></li>
+<li><a href=#113煤质合格率>1.13、煤质合格率</a></li>
+<li><a href=#114入炉煤配煤合格率>1.14、入炉煤配煤合格率</a></li>
+<li><a href=#115燃料亏吨索赔率>1.15、燃料亏吨索赔率</a></li>
+<li><a href=#116燃料亏卡索赔率>1.16、燃料亏卡索赔率</a></li>
+<li><a href=#117入厂煤与入炉煤热值差>1.17、入厂煤与入炉煤热值差</a></li>
+<li><a href=#118入厂煤与入炉煤水分差>1.18、入厂煤与入炉煤水分差</a></li>
+<li><a href=#119输煤油单耗输煤油耗电率>1.19、输煤(油)单耗、输煤(油)耗电率</a></li>
+<li><a href=#120燃煤机械采样装置投入率>1.20、燃煤机械采样装置投入率</a></li>
+<li><a href=#121皮带秤校验合格率>1.21、皮带秤校验合格率</a></li>
+<li><a href=#122入厂标煤单价>1.22、入厂标煤单价</a></li>
+<li><a href=#123入炉标煤单价>1.23、入炉标煤单价</a></li>
+<li><a href=#124入厂煤与入炉煤标煤单价差>1.24、入厂煤与入炉煤标煤单价差</a></li>
+</ul>
+</li>
+<li><a href=#2锅炉技术经济指标>2、锅炉技术经济指标</a></li>
+<li><a href=#3锅炉辅助设备技术经济指标>3、锅炉辅助设备技术经济指标</a></li>
+<li><a href=#4汽轮机技术经济指标>4、汽轮机技术经济指标</a>
+<ul>
+<li><a href=#41汽轮机主蒸汽流量>4.1、汽轮机主蒸汽流量</a></li>
+<li><a href=#42汽轮机主蒸汽压力>4.2、汽轮机主蒸汽压力</a></li>
+<li><a href=#43汽轮机主蒸汽温度>4.3、汽轮机主蒸汽温度</a></li>
+<li><a href=#44汽轮机再热蒸汽压力>4.4、汽轮机再热蒸汽压力</a></li>
+<li><a href=#45汽轮机再热蒸汽温度>4.5、汽轮机再热蒸汽温度</a></li>
+<li><a href=#46再热蒸汽压损率>4.6、再热蒸汽压损率</a></li>
+<li><a href=#47最终给水温度>4.7、最终给水温度</a></li>
+<li><a href=#48最终给水流量>4.8、最终给水流量</a></li>
+<li><a href=#49凝汽器真空>4.9、凝汽器真空</a></li>
+<li><a href=#410凝汽器真空度>4.10、凝汽器真空度</a></li>
+<li><a href=#411排汽温度>4.11、排汽温度</a></li>
+<li><a href=#412真空系统严密性>4.12、真空系统严密性</a></li>
+<li><a href=#413机组的汽耗率热耗率热效率>4.13、机组的汽耗率、热耗率、热效率</a></li>
+</ul>
+</li>
+<li><a href=#5汽轮机辅助设备技术经济指标>5、汽轮机辅助设备技术经济指标</a>
+<ul>
+<li><a href=#51凝结水泵耗电率>5.1、凝结水泵耗电率</a></li>
+<li><a href=#52给水泵>5.2、给水泵</a></li>
+<li><a href=#53循环水泵耗电率>5.3、循环水泵耗电率</a></li>
+<li><a href=#54冷却塔>5.4、冷却塔</a></li>
+<li><a href=#55加热器技术经济指标>5.5、加热器技术经济指标</a></li>
+<li><a href=#56凝汽器技术经济指标>5.6、凝汽器技术经济指标</a></li>
+</ul>
+</li>
+<li><a href=#6燃气-蒸汽联合循环技术经济指标>6、燃气-蒸汽联合循环技术经济指标</a></li>
+<li><a href=#7综合技术经济指标>7、综合技术经济指标</a>
+<ul>
+<li><a href=#71供热指标>7.1、供热指标</a></li>
+<li><a href=#72厂用电率>7.2、厂用电率</a></li>
+<li><a href=#73电厂效率>7.3、电厂效率</a></li>
+<li><a href=#74发电供热煤耗>7.4、发电、供热煤耗</a></li>
+<li><a href=#75供电煤耗>7.5、供电煤耗</a></li>
+<li><a href=#76运行负荷率>7.6、运行负荷率</a></li>
+</ul>
+</li>
+<li><a href=#8其他技术经济指标>8、其他技术经济指标</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>《火力发电厂技术经济指标计算方法》（DL/T 904-2015）规定了火力发电厂技术经济指标的计算方法，列出了诸多计算公式。学习过程中深感公式之复杂，特列于此处以作提示及备忘。</p>
+<h2 id=1燃料技术经济指标>1、燃料技术经济指标</h2>
+<h3 id=11收入燃料量>1.1、收入燃料量</h3>
+<p>收入燃料量是指火力发电厂在统计期内实际收到供方所供应的燃料(燃煤、燃油、燃气等)数量。</p>
+<p>$$B_{sr}=\sum B_i$$</p>
+<p>式中：</p>
+<p>$B_{sr}$ —— 收入燃料量，t；</p>
+<p>$B_i$ —— 各种采购方式收入的燃料量，t。</p>
+<p>统计计算方法如下:</p>
+<ul>
+<li>货票统计法。用货票数量相加所得;统计时按规定计算运损和盈亏吨。</li>
+<li>实际计量法。用轨道衡、皮带秤等计量设备实际计量的燃料,按计量的结果进账。使用计量法
+时应按下式折算成含规定水分的到厂燃料重量。</li>
+</ul>
+<p>$$ B_{gd}=B_{gh}\times\frac{100-M_{ar}^{sj}}{100-M_{ar}^{gd}} $$</p>
+<p>式中:</p>
+<p>$B_{gd}$ —— 燃料含规定水分的到厂重量，t；</p>
+<p>$B_{gh}$ —— 燃料过衡重量，t；</p>
+<p>$M_{ar}^{sj}$ —— 到厂实际燃料收到基水分，%；</p>
+<p>$M_{ar}^{gd}$ —— 规定燃料收到基水分上限，%。</p>
+<h3 id=12燃料耗用量>1.2、燃料耗用量</h3>
+<p>燃料耗用量是指火力发电厂在统计期内生产和非生产实际消耗的燃料(燃煤、燃油、燃气等)量。</p>
+<p>$$ B_{hy}=B_{fd}+B_{gr}+B_{fs}+B_{th} $$</p>
+<p>式中:</p>
+<p>$B_{hy}$ —— 燃料耗用量，t；</p>
+<p>$B_{fd}$ —— 发电燃料耗用量，t；</p>
+<p>$B_{gr}$ —— 供热燃料耗用量，t；</p>
+<p>$B_{fs}$ —— 非生产燃料耗用量，t；</p>
+<p>$B_{th}$ —— 其他燃料耗用量，t。</p>
+<h3 id=13燃料库存量>1.3、燃料库存量</h3>
+<p>燃料库存量指火力发电厂在统计期初或期末实际结存的燃料(燃煤、燃油、燃气等)数量。</p>
+<p>$$B_{kc}=B_{sr}-B_{hy}-B_{ys}-B_{cs}-B_{tc}+B_{qc}$$</p>
+<p>式中:</p>
+<p>$B_{kc}$ —— 燃料库存量，t；</p>
+<p>$B_{ys}$ —— 燃料运损量，t；</p>
+<p>$B_{cs}$ —— 燃料存损量，t；</p>
+<p>$B_{tc}$ —— 燃料调出量，t；</p>
+<p>$B_{qc}$ —— 期初存煤量，t。</p>
+<h3 id=14燃料检斤量检斤率过衡率>1.4、燃料检斤量、检斤率、过衡率</h3>
+<p>燃料检斤量是指对收入燃料量进行过衡和检尺验收的数量。</p>
+<p>$$ B_{jj}=B_{gh}+B_{jc} $$</p>
+<p>式中:</p>
+<p>$B_j$ —— 燃料检斤量，t；</p>
+<p>$B_{jc}$ —— 燃料检尺量，t。</p>
+<p>燃料检斤率是指燃料检斤量与收入燃料量的百分比。</p>
+<p>$$ L_{jj}=\frac{B_{jj}}{B_{sr}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{jj}$ —— 燃料检斤率，%。</p>
+<p>燃料过衡率是指燃料过衡量与收入燃料量的百分比。</p>
+<p>$$ L_{gh}=\frac{B_{gh}}{B_{sr}} $$</p>
+<p>式中:</p>
+<p>$L_{gh}$ —— 燃料过衡率，%。</p>
+<h3 id=15燃料运损率>1.5、燃料运损率</h3>
+<p>燃料运损率是指燃料在运输过程中实际损失数量与燃料货票量的百分比。</p>
+<p>$$ L_{ys}=\frac{B_{ys}}{B_{hp}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{ys}$ —— 燃料运损率，%；</p>
+<p>$B_{hp}$ —— 燃料货票量，t。</p>
+<p>一般情况下运损按如下定额值选取:</p>
+<ul>
+<li>铁路运输为1.2%；</li>
+<li>水路运输为1.5%；</li>
+<li>公路运输为1%；</li>
+<li>水陆联合运输为1.5%；</li>
+<li>中转换装一次增加1%。</li>
+</ul>
+<p>火力发电厂也可根据燃料品种、运输距离、运输方式、中转情况以及季节的不同,实际测定各种燃料的运损率。</p>
+<h3 id=16燃料盈吨量盈吨率>1.6、燃料盈吨量、盈吨率</h3>
+<p>燃料盈吨量是指燃料检斤量大于货票记载数量的部分,即为盈吨。</p>
+<p>$$ B_{yd}=B_{jj}-B_{hp} $$</p>
+<p>式中:</p>
+<p>$B_{yd}$ ——燃料盈吨量,t。</p>
+<p>燃料盈吨率是指燃料盈吨量与实际燃料检斤量的百分比。</p>
+<p>$$ L_{yd}=\frac{B_{yd}}{B_{jj}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{yd}$ —— 燃料盈吨率,%。</p>
+<h3 id=17燃料亏吨量亏吨率>1.7、燃料亏吨量、亏吨率</h3>
+<p>燃料亏吨量是指燃料检斤量小于货票记载的数量,且超过运损量的部分。</p>
+<p>$$ B_{kd}=B_{jj}-B_{hp}\big(1-L_{ys}\big) $$</p>
+<p>式中:</p>
+<p>$B_{kd}$ —— 燃料亏吨量,t。</p>
+<p>燃料亏吨率是指燃料亏吨量与实际燃料检斤量的百分比。</p>
+<p>$$ L_{kd}=\frac{B_{kd}}{B_{jj}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{kd}$ —— 燃料亏吨率,%。</p>
+<h3 id=18煤场存损率>1.8、煤场存损率</h3>
+<p>煤场存损率指统计期内燃煤储存损失的数量与实际日平均库存燃煤量的百分比。</p>
+<p>$$ L_{cs}=\frac{B_{cs}}{B_{kc}^'}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{cs}$ —— 煤场存损率,%;</p>
+<p>$B_{kc}^'$ —— 实际日平均库存燃煤量,t。</p>
+<p>存损率不大于每月的日平均存煤量的0.5%,火力发电厂也可根据具体情况实际测定煤场存损率。</p>
+<h3 id=19燃料盘点库存量>1.9、燃料盘点库存量</h3>
+<p>燃料盘点库存量是指对燃料库存进行实际测量盘点的量,可通过人工盘点或通过仪器检测得出。盘点包括测量体积、测定堆积密度、计算收入量、计算库存量、调整水分差等工作。</p>
+<h3 id=110燃料盘点盈亏量>1.10、燃料盘点盈亏量</h3>
+<p>燃料盘点盈亏量是指燃料实际盘点库存量与账面库存量之差。当燃料实际盘点库存量大于账面燃料库存量时为盈;当燃料实际盘点库存量小于账面燃料库存量时为亏。</p>
+<p>$$ B_{yk}=B_{pd}-B_{zkc} $$</p>
+<p>式中:</p>
+<p>$B_{yk}$ —— 燃料盘点盈亏量,t;</p>
+<p>$B_{pd}$ —— 燃料盘点库存量,t;</p>
+<p>$B_{zkc}$ —— 盘点账面燃料库存量,t。</p>
+<h3 id=111燃料检质率>1.11、燃料检质率</h3>
+<p>燃料检质率是指对收到的燃料进行质量检验的数量与收入燃料量的百分比。</p>
+<p>$$ L_{jz}=\frac{B_{jz}}{B_{sr}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{jz}$ —— 燃料检质率,%;</p>
+<p>$B_{jz}$ —— 燃料检质量,t。</p>
+<p>燃料的质量检验按现行有效的国家、行业标准执行。</p>
+<h3 id=112煤炭质级不符率>1.12、煤炭质级不符率</h3>
+<p>煤炭质级不符率是指到厂煤检质质级不符部分的煤量与燃料检质量的百分比。</p>
+<p>$$ L_{bf}=\frac{B_{bf}}{B_{jz}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{bf}$ —— 煤炭质级不符率,%;</p>
+<p>$B_{bf}$ —— 质级不符部分的煤量,t。</p>
+<h3 id=113煤质合格率>1.13、煤质合格率</h3>
+<p>煤质合格率是指到厂煤检质煤质合格部分的煤量与燃料检质量的百分比。</p>
+<p>$$ L_{hg}=\frac{B_{hg}}{B_{jz}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{hg}$ —— 煤质合格率,%;</p>
+<p>$B_{hg}$ —— 煤质合格煤量,t。</p>
+<h3 id=114入炉煤配煤合格率>1.14、入炉煤配煤合格率</h3>
+<p>入炉煤配煤合格率是指通过配煤使入炉煤质达到要求的煤量与入炉煤总量的百分比。</p>
+<p>$$ L_{pm}=\frac{B_{pm}}{\sum B_{rl}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{pm}$ —— 入炉煤配煤合格率,%;</p>
+<p>$B_{pm}$ —— 配煤合格煤量,t;</p>
+<p>$B_{rl}$ —— 入炉煤量,t。</p>
+<h3 id=115燃料亏吨索赔率>1.15、燃料亏吨索赔率</h3>
+<p>燃料亏吨索赔率是指火力发电厂向供方实际索回的亏吨数量与燃料亏吨量的百分比。</p>
+<p>$$ L_{ds}=\frac{B_{ds}}{B_{kd}}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{ds}$ —— 燃料亏吨索赔率,%;</p>
+<p>$B_{ds}$ —— 燃料亏吨索赔煤量,t。</p>
+<h3 id=116燃料亏卡索赔率>1.16、燃料亏卡索赔率</h3>
+<p>燃料亏卡索赔率是指火力发电厂向供货方实际索回的质价不符金额与应索回的质价不符金额的百分比。</p>
+<p>$$ L_{ks}=(实际索回的质价不符金额/应索回的质价不符金额)\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{ks}$ —— 燃料亏卡索赔率,%。</p>
+<h3 id=117入厂煤与入炉煤热值差>1.17、入厂煤与入炉煤热值差</h3>
+<p>入厂煤与入炉煤热值差是指入厂煤收到基低位发热量(加权平均值)与入炉煤收到基低位发热量(加权平均值)之差。计算入厂煤与入炉煤热值差应考虑燃料收到基水分变化的影响,并修正到同一收到基水分的状态下进行计算。</p>
+<p>$$ \delta Q=Q_{ar,net}^{rc}-Q_{ar,net}^{rl} $$</p>
+<p>式中:</p>
+<p>$\delta Q$ —— 入厂煤与入炉煤热值差,kJ/kg;</p>
+<p>$Q_{ar,net}^{rc}$ —— 入厂煤收到基低位发热量,kJ/kg;</p>
+<p>$Q_{ar,net}^{rl}$ —— 入炉煤收到基低位发热量,kJ/kg。</p>
+<h3 id=118入厂煤与入炉煤水分差>1.18、入厂煤与入炉煤水分差</h3>
+<p>入厂煤与入炉煤水分差是指入厂煤收到基水分(加权平均值)与入炉煤收到基水分(加权平均值)之差。</p>
+<p>$$ \delta M=M_{ar}^{rc}-M_{ar}^{rl} $$</p>
+<p>式中:</p>
+<p>$\delta M$ —— 入厂煤与入炉煤水分差,%;</p>
+<p>$M_{ar}^{rc}$ —— 入厂煤收到基水分,%;</p>
+<p>$M_{ar}^{rl}$ —— 入炉煤收到基水分,%。</p>
+<h3 id=119输煤油单耗输煤油耗电率>1.19、输煤(油)单耗、输煤(油)耗电率</h3>
+<p>输煤(油)单耗是指输煤(油)系统厂用电量与相应入炉原煤(油)总量之比。</p>
+<p>$$ b_{sm}=\frac{W_{sm}}{B_{rl}} $$</p>
+<p>式中:</p>
+<p>$b_{sm}$ —— 输煤(油)单耗,kW·h/t;</p>
+<p>$W_{sm}$ —— 输煤(油)系统厂用电量,kW·h。</p>
+<p>输煤(油)耗电率是指输煤(油)系统厂用电量与全厂发电量的百分比。</p>
+<p>$$ w_{sm}=\frac{W_{sm}}{\sum W_f}\times 100 $$</p>
+<p>式中:</p>
+<p>$w_{sm}$ —— 输煤(油)耗电率,%;</p>
+<p>$\sum W_f$ —— 全厂发电量,kW·h。</p>
+<h3 id=120燃煤机械采样装置投入率>1.20、燃煤机械采样装置投入率</h3>
+<p>燃煤机械采样装置投入率是指在统计期内燃煤机械采样装置投入的时间与含故障时间在内的机械采样装置运行小时的百分比。</p>
+<p>$$ L_{jct}=(燃煤机械采样装置投入时间/含故障时间在内的机械采样装置运行时间)\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{jct}$ —— 燃煤机械采样装置投入率,%。</p>
+<h3 id=121皮带秤校验合格率>1.21、皮带秤校验合格率</h3>
+<p>皮带秤校验合格率是指皮带秤校验合格次数与皮带秤校验总次数的百分比。</p>
+<p>$$ L_{xy}=(皮带秤校验合格次数/皮带秤校验总次数)\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{xy}$ —— 皮带秤校验合格率,%。</p>
+<h3 id=122入厂标煤单价>1.22、入厂标煤单价</h3>
+<p>入厂标煤单价是指燃料到厂总费用(煤价、运费及各种运杂费总和)与对应的标准煤量的比值。入厂标煤单价包括含税和不含税两种。</p>
+<p>$$ R_{rc}=\frac{K_{rc}}{B_b}=\frac{K_m+K_y+K_z}{B_b} $$</p>
+<p>式中:</p>
+<p>$R_{rc}$ —— 入厂标煤单价,元/吨;</p>
+<p>$K_{rc}$ —— 燃料到厂总费用,元;</p>
+<p>$B_b$ —— 入厂标准煤量,t;</p>
+<p>$K_m$ —— 燃料费用,元;</p>
+<p>$K_y$ —— 燃料运输费用,元;</p>
+<p>$K_z$ —— 燃料运杂费,元。</p>
+<h3 id=123入炉标煤单价>1.23、入炉标煤单价</h3>
+<p>入炉标煤单价是指入炉消耗燃料的总费用与对应的入炉标准煤总量的比值。入炉标煤单价一般指不含税价。</p>
+<p>$$ R_{rl}=\frac{K_{rl}}{B_{lb}}=\frac{K_{lm}+K_{ly}+K_{lq}+K_{lz}}{B_{lb}} $$</p>
+<p>式中:</p>
+<p>$R_{rl}$ —— 入炉标煤单价,元/吨;</p>
+<p>$B_{lb}$ —— 入炉标准煤总量,t;</p>
+<p>$K_{rl}$ —— 入炉燃料总费用,元;</p>
+<p>$K_{lm}$ —— 入炉燃煤费用,元;</p>
+<p>$K_{ly}$ —— 入炉燃油费用,元;</p>
+<p>$K_{lq}$ —— 入炉燃气费用,元;</p>
+<p>$K_{lz}$ —— 炉前燃料杂费,元。</p>
+<h3 id=124入厂煤与入炉煤标煤单价差>1.24、入厂煤与入炉煤标煤单价差</h3>
+<p>入厂煤与入炉煤标煤单价差是指不含税入厂标煤单价与入炉标煤单价之差。</p>
+<p>$$ \delta R=R_{rl}-R_{rc} $$</p>
+<p>式中:</p>
+<p>$\delta R$ —— 入厂煤与入炉煤标煤单价差,元/吨;</p>
+<p>$R_{rl}$ —— 入炉标煤单价,元/吨;</p>
+<p>$R_{rc}$ —— 入厂标煤单价,元/吨。</p>
+<h2 id=2锅炉技术经济指标>2、锅炉技术经济指标</h2>
+<p>(待补充……)</p>
+<h2 id=3锅炉辅助设备技术经济指标>3、锅炉辅助设备技术经济指标</h2>
+<p>(待补充……)</p>
+<h2 id=4汽轮机技术经济指标>4、汽轮机技术经济指标</h2>
+<h3 id=41汽轮机主蒸汽流量>4.1、汽轮机主蒸汽流量</h3>
+<p>汽轮机主蒸汽流量是指汽轮机自动主汽门前的蒸汽流量值(t/h)。如果有多路主蒸汽管道,取多路流量之和。</p>
+<h3 id=42汽轮机主蒸汽压力>4.2、汽轮机主蒸汽压力</h3>
+<p>汽轮机主蒸汽压力是指汽轮机自动主汽门前的蒸汽压力值(MPa)。如果有多路主蒸汽管道,取算术平均值。</p>
+<h3 id=43汽轮机主蒸汽温度>4.3、汽轮机主蒸汽温度</h3>
+<p>汽轮机主蒸汽温度是指汽轮机自动主汽门前的蒸汽温度值(℃)。如果有多路主蒸汽管道,取算术平均值。</p>
+<h3 id=44汽轮机再热蒸汽压力>4.4、汽轮机再热蒸汽压力</h3>
+<p>汽轮机再热蒸汽压力是指汽轮机再热主汽门前的蒸汽压力值(MPa)。如有多路再热蒸汽管道,取算术平均值。</p>
+<h3 id=45汽轮机再热蒸汽温度>4.5、汽轮机再热蒸汽温度</h3>
+<p>汽轮机再热蒸汽温度是指汽轮机再热主汽门前的蒸汽温度值(℃)。如有多路再热蒸汽管道,取算术平均值。</p>
+<h3 id=46再热蒸汽压损率>4.6、再热蒸汽压损率</h3>
+<p>再热蒸汽压损率是指高压缸排汽压力和汽轮机再热蒸汽压力之差与高压缸排汽压力的百分比。</p>
+<p>$$L_{zys}=\frac{p_{lzr}-p_{zr}}{p_{lzr}}\times 100$$</p>
+<p>式中：</p>
+<p>$L_{zys}$ —— 再热蒸汽压损率，%；</p>
+<p>$p_{lzr}$ —— 高压缸排汽压力，MPa；</p>
+<p>$p_{zr}$ —— 汽轮机再热蒸汽压力，MPa。</p>
+<h3 id=47最终给水温度>4.7、最终给水温度</h3>
+<p>最终给水温度是指汽轮机高压给水加热系统大旁路后的给水温度值(℃)。</p>
+<h3 id=48最终给水流量>4.8、最终给水流量</h3>
+<p>最终给水流量是指汽轮机高压给水加热系统大旁路后主给水管道内的流量(t/h)。如有多路给水管道，取多路流量之和。</p>
+<h3 id=49凝汽器真空>4.9、凝汽器真空</h3>
+<p>凝汽器真空是指汽轮机低压缸排汽端真空(kPa)。</p>
+<p>$$p_{zk}=p_{dq}-p_{by}$$</p>
+<p>式中：</p>
+<p>$p_{zk}$ —— 凝汽器真空，kPa；</p>
+<p>$p_{by}$ —— 汽轮机背压（绝对压力），kPa；</p>
+<p>$p_{dq}$ —— 当地大气压，kPa。</p>
+<h3 id=410凝汽器真空度>4.10、凝汽器真空度</h3>
+<p>凝汽器真空度是指汽轮机低压缸排汽端真空占当地大气压的百分比。</p>
+<p>$$\eta_{zk}=\bigg( 1-\frac{p_{by}}{p_{dq}} \bigg) \times 100$$</p>
+<p>式中：</p>
+<p>$\eta_{zk}$ —— 凝汽器真空度，%；</p>
+<p>$p_{by}$ —— 凝汽器背压（绝对压力），kPa；</p>
+<p>$p_{dq}$ —— 当地大气压，kPa。</p>
+<h3 id=411排汽温度>4.11、排汽温度</h3>
+<p>排汽温度是指通过低压缸排汽端的蒸汽温度值(℃),条件允许时取多点平均值。</p>
+<h3 id=412真空系统严密性>4.12、真空系统严密性</h3>
+<p>真空系统严密性是指机组真空系统的严密程度,以凝汽器真空下降速度表示。</p>
+<p>$$凝汽器真空下降速度=试验时间内的真空下降值(Pa)/试验时间(min)$$</p>
+<p>湿冷机组试验时,负荷宜稳定在额度负荷的80%以上，停真空泵或关闭连接抽气设备的空气阀，30s后开始每0.5min记录一次机组的真空值，共记录8min，取其中后5min的真空下降值。空冷机组的真空严密性试验参照相关电力行业标准进行。</p>
+<h3 id=413机组的汽耗率热耗率热效率>4.13、机组的汽耗率、热耗率、热效率</h3>
+<h4 id=4131机组平均负荷>4.13.1、机组平均负荷</h4>
+<p>机组平均负荷是指统计期间汽轮发电机组的发电量与运行小时的比值(kW)。</p>
+<p>$$P_{pj}=\frac{W_f}{t}$$</p>
+<p>式中：</p>
+<p>$P_{pj}$ —— 机组平均负荷，kW；</p>
+<p>$W_f$ —— 统计期内机组发电量，kW$\cdot$h；</p>
+<p>$t$ —— 统计期内机组运行小时，h。</p>
+<h4 id=4132汽耗率>4.13.2、汽耗率</h4>
+<p>汽耗率指汽轮机组输出单位发电量的主蒸汽消耗量。统计期内汽耗率计算时,取主蒸汽流量累计值与机组发电量的比值。</p>
+<p>$$d=\frac{D_L}{W_f}$$</p>
+<p>式中：</p>
+<p>$d$ —— 汽耗率，kg/(kW$\cdot$h);</p>
+<p>$D_L$ —— 统计期内主蒸汽流量累计值，t。</p>
+<h4 id=4133汽轮机组热耗量>4.13.3、汽轮机组热耗量</h4>
+<p>汽轮机组热耗量是指单位时间内汽轮机组从外部热源所取得的热量,根据GB/T8117.1—2008按再热机组和非再热机组分别进行计算。</p>
+<p>a) 再热机组热耗量可由下式计算:</p>
+<p>$$ Q_{sr}=(D_{zq}\times h_{zq} - D_{gs}\times h_{gs} + D_{zr}\times h_{zr} - D_{lzr}\times h_{lzr} - D_{gj}\times h_{gj} -D_{zj}\times h_{zj} + \sum_{i=1}^mD_{go_i}\times h_{go_i})\times 1000 $$</p>
+<p>或由其等价形式计算:</p>
+<p>$$ Q_{sr}=\Bigg\langle (D_{zq}-D_{gj})\times (h_{zq}-h_{gs}) + D_{gj}\times(h_{zq}-h_{gj}) + (D_{zr}-D_{zj})\times (h_{zr}-h_{lzr}) + D_{zj}\times (h_{zr}-h_{zj}) + \sum_{i=1}^m[D_{go_i}\times(h_{go_i}-h_{gs})] \Bigg\rangle\times 1000 $$</p>
+<p>式中:</p>
+<p>$Q_{sr}$ —— 汽轮机热耗量,kJ/h;</p>
+<p>$D_{zq}$ —— 汽轮机主蒸汽流量,t/h;</p>
+<p>$h_{zq}$ —— 汽轮机主蒸汽焓值,kJ/kg;</p>
+<p>$D_{gs}$ —— 最终给水流量,t/h;</p>
+<p>$h_{gs}$ —— 最终给水焓值,kJ/kg;</p>
+<p>$D_{zr}$ —— 汽轮机再热蒸汽流量,t/h;</p>
+<p>$h_{zr}$ —— 汽轮机再热蒸汽焓值,kJ/kg;</p>
+<p>$D_{lzr}$ —— 冷再热蒸汽流量,t/h;</p>
+<p>$h_{lzr}$ —— 冷再热蒸汽焓值,kJ/kg;</p>
+<p>$D_{gj}$ —— 过热器减温水流量,t/h;</p>
+<p>$h_{gj}$ —— 过热器减温水焓值,kJ/kg;</p>
+<p>$D_{zj}$ —— 再热器减温水流量,t/h;</p>
+<p>$h_{zj}$ —— 再热器减温水焓值,kJ/kg;</p>
+<p>$D_{go_i}$ —— 锅炉侧排出(或漏出)的第i股蒸汽(或水)的流量,如锅炉排污、吹灰或其他泄漏,t/h;</p>
+<p>$h_{go_i}$ —— 锅炉侧排出(或漏出)的第i股蒸汽(或水)的焓值,如锅炉排污、吹灰或其他泄漏,kJ/kg。</p>
+<p>汽轮机主蒸汽流量可由下式确定:</p>
+<p>$$ D_{zq}=D_{gs}+D_{gj}-\sum_{i=1}^mD_{go_i} $$</p>
+<p>冷再热蒸汽流量($D_{lzr}$)由下式确定:</p>
+<p>$$ D_{lzr}=D_{zq}-D_{gl}-D_{gn}-D_{he}-D_x-D_{zqt} $$</p>
+<p>式中:</p>
+<p>$D_{gl}$ —— 高压门杆漏汽量,t/h;</p>
+<p>$D_{gn}$ —— 高压缸前后轴封漏汽量,t/h;</p>
+<p>$D_{he}$ —— 高压缸抽汽至高压加热器汽量,t/h;</p>
+<p>$D_{x}$ —— 高压缸漏至中压缸漏汽量(本项适用于高中压合缸结构的再热机组),t/h;</p>
+<p>$D_{zqt}$ —— 冷段再热蒸汽供厂用抽汽等其他用汽量,t/h。</p>
+<p>再热蒸汽流量($D_{zr}$)由下式确定:</p>
+<p>$$ D_{zr}=D_{lzr}+D_{zj} $$</p>
+<p>b) 非再热机组热耗量可由下式计算:</p>
+<p>$$ Q_{sr}=[(D_{zq}-D_{gj})\times (h_{zq}-h_{gs}) + D_{gj}\times (h_{zq}-h_{gj}) + \sum_{i=1}^mD_{go_i}\times (h_{go_i}-h_{gs})]\times 1000 $$</p>
+<p>或由其等价形式计算:</p>
+<p>$$ Q_{sr}=(D_{zq}\times h_{zq} - D_{gs}\times h_{gs} - D_{gj}\times h_{gj} + \sum_{i=1}^mD_{go_i}\times h_{go_i})\times 1000 $$</p>
+<p>热耗量计算中,汽轮机主蒸汽流量可由下式确定:</p>
+<p>$$ D_{zq}=D_{gs}+D_{gj}-\sum_{i=1}^mD_{go_i} $$</p>
+<h4 id=4134汽轮机组热耗率>4.13.4、汽轮机组热耗率</h4>
+<p>汽轮机组热耗率是指汽轮机组每生产1kW·h电能所消耗的热量。</p>
+<p>$$q=\frac{Q_{sr}-Q_{gr}}{P_{qj}}$$</p>
+<p>式中：</p>
+<p>$q$ —— 热耗率，kJ/(kW·h)；</p>
+<p>$Q_{sr}$ —— 汽轮机热耗量，kJ/h；</p>
+<p>$Q_{gr}$ —— 机组供热量，kJ/h；</p>
+<p>$P_{qj}$ —— 发电机出线端电功率，kW。</p>
+<p>机组供热量的计算如式(101):</p>
+<p>$$ Q_{gr}=Q_{zg}+Q_{jg} $$</p>
+<p>式中:</p>
+<p>$Q_{zg}$ —— 直接供热量,kJ/h;</p>
+<p>$Q_{jg}$ —— 间接供热量,kJ/h。</p>
+<p>1)直接供热指由汽轮机直接或经减温减压后向热用户提供热量的供热方式。直接供热量由式(102)计算:</p>
+<p>$$ D_{zg}=(D_ih_i-D_jh_j-D_kh_k)\times 1000 $$</p>
+<p>式中:</p>
+<p>$D_i$ —— 机组的直接供汽流量,t/h;</p>
+<p>$h_i$ —— 机组直接供汽的供汽焓值,kJ/kg;</p>
+<p>$D_j$ —— 机组直接供汽的凝结水回水量,t/h;</p>
+<p>$h_j$ —— 机组直接供汽的凝结水回水焓值,kJ/kg;</p>
+<p>$D_k$ —— 机组用于直接供热的补充水量,t/h;</p>
+<p>$h_k$ —— 机组用于直接供热的补充水的焓值,kJ/kg。</p>
+<p>2)间接供热指通过热网加热器等设备加热供热介质后间接向用户提供热量的供热方式。间接供热量采用下述方法计算:</p>
+<p>a)当机组具有蒸汽流量计量装置时,采用式(103)计算:</p>
+<p>$$ D_{jg}=D_{qs}(h_q-h_{qs})\times 1000 $$</p>
+<p>式中:
+$D_{qs}$ ——间接供热时蒸汽的疏水流量,t/h;
+$h_q$ ——间接供热时采用蒸汽的供汽焓值,kJ/kg;
+$h_{qs}$ ——间接供热时蒸汽的疏水焓值,kJ/kg。</p>
+<p>b)当机组无蒸汽流量计量装置时,采用式(104)计算:</p>
+<p>$$ Q_{jg}=\frac{D_{rgs}h_{rgs}-D_{rhs}h_{rhs}-D_kh_k}{\eta_{rw}}\times 1000 $$</p>
+<p>式中:</p>
+<p>$D_{rgs}$ —— 机组热网循环水供水流量(当一台机组带多台热网加热器时,取循环水总供水流量),t/h;</p>
+<p>$h_{rgs}$ —— 机组热网循环水供水焓值(当一台机组带多台热网加热器时,取多台热网加热器出口混合后循环水供水焓值),kJ/kg;</p>
+<p>$D_{rhs}$ —— 机组热网循环水回水流量(当一台机组带多台热网加热器时,取热网循环水总回水流量),t/h:</p>
+<p>$h_{rhs}$ —— 机组热网循环水回水焓值,kJ/kg;</p>
+<p>$D_k$ —— 机组热网循环水的补充水量,kg;</p>
+<p>$h_k$ —— 机组热网循环水的补充水焓值,kJ/kg;</p>
+<p>$\eta_{rw}$ —— 热网加热器效率,%。</p>
+<p>3)当机组采用低真空循环水供热、热泵回收热量等特殊间接供热方式时,此部分间接供热量采用式(105)计算:</p>
+<p>$$ Q_{jg}=\frac{D_{rgs}(h_{rgs}-h_{rhs})}{\eta_{hr}}\times 1000 $$</p>
+<p>式中:</p>
+<p>$D_{rgs}$ —— 机组热网循环水流量,当采用低真空循环水供热时,取进入凝汽器的循环水流量;当采用热泵回收热量供热时,取进入热泵的热网循环水总流量,t/h。</p>
+<p>$h_{rgs}$ —— 机组热网循环水供水焓值,当采用低真空循环水供热时,取凝汽器出口的循环水焓值;当采用热泵回收热量供热时,取热泵出口混合后的热网循环水焓值,kJ/kg。</p>
+<p>$h_{rhs}$ —— 机组热网循环水回水焓值,当采用低真空循环水供热时,取凝汽器进口的循环水焓值;当采用热泵回收热量供热时,取热泵进口的热网循环水焓值,kJ/kg。</p>
+<p>$\eta_{hr}$ —— 换热器效率,对于热泵取100%,%。</p>
+<h4 id=4135汽轮机组发电热效率>4.13.5、汽轮机组发电热效率</h4>
+<p>汽轮机组发电热效率是指汽轮发电机组每千瓦时发电量相当的热量占汽轮机组热耗率的百分比，也指汽轮发电机组总输出功率的当量热量与汽轮机组热耗量减去供热量后的百分比。</p>
+<p>$$\eta_q = \frac{3600}{q} \times 100$$</p>
+<p>式中：</p>
+<p>$\eta_q$ —— 汽轮机组发电热效率，%；</p>
+<p>$3600$ —— 电的热当量，kJ/(kW·h)。</p>
+<h2 id=5汽轮机辅助设备技术经济指标>5、汽轮机辅助设备技术经济指标</h2>
+<h3 id=51凝结水泵耗电率>5.1、凝结水泵耗电率</h3>
+<p>凝结水泵耗电率是指统计期内凝结水泵消耗的电量与机组发电量的百分比。</p>
+<p>$$ L_{nb}=\frac{\sum W_{nb}}{W_f}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{nb}$ —— 凝结水泵耗电率,%;</p>
+<p>$W_{nb}$ —— 凝结水泵消耗的电量,kW·h。</p>
+<h3 id=52给水泵>5.2、给水泵</h3>
+<h4 id=521给水泵扬程>5.2.1、给水泵扬程</h4>
+<p>给水泵扬程是指给水泵出口总水头与入口总水头的代数差。单位为米水柱,简称米。</p>
+<p>$$ H_{gs}=\frac{p_2}{\rho_2g}-\frac{p_1}{\rho_1g}+(Z_2-Z_1)+\frac{v_2^2-v_1^2}{2g} $$</p>
+<p>式中:</p>
+<p>$H_{gs}$ —— 给水泵扬程,m;</p>
+<p>$p_1$ —— 给水泵入口压力,Pa;</p>
+<p>$p_2$ —— 给水泵出口压力,Pa;</p>
+<p>$\rho_1$ —— 给水泵入口给水密度,kg/m3;</p>
+<p>$\rho_2$ —— 给水泵出口给水密度,kg/m3;</p>
+<p>$Z_1$ —— 给水泵入口水平面的垂直高差,如果所指的水平面在基准面上,Z取正值,反之为负值,m;</p>
+<p>$Z_2$ —— 给水泵出口水平面的垂直高差,如果所指的水平面在基准面上,Z取正值,反之为负值,m;</p>
+<p>$g$ —— 重力加速度,通常取值9.80665m/s2;</p>
+<p>$v_1$ —— 给水泵入口给水速度,m/s;</p>
+<p>$v_2$ —— 给水泵出口给水速度,m/s。</p>
+<h4 id=522给水泵的输出功率>5.2.2\给水泵的输出功率</h4>
+<p>给水泵的输出功率是指给水流经给水泵时传递给给水的机械功率。单位为kW。</p>
+<p>对于有中间抽头的给水泵,其输出功率由两部分组成:</p>
+<p>$$ P_{sc}=\frac{g\times D_{gs}^q\times H + g\times D_{gs}^c\times H_c}{3600}\times 10^3 $$</p>
+<p>式中:</p>
+<p>$P_{sc}$ —— 给水泵的输出功率,kW;</p>
+<p>$D_{gs}^q$ —— 给水泵出口的给水质量流量,t/h;</p>
+<p>$D_{gs}^c$ —— 给水泵中间抽头的给水质量流量,t/h;</p>
+<p>$H_c$ —— 给水泵中间抽头的扬程(计算参照给水泵的扬程H),m。</p>
+<h4 id=523电动给水泵单耗>5.2.3、电动给水泵单耗</h4>
+<p>电动给水泵单耗是指每吨给水量消耗的电量。电动给水泵单耗计算时,取统计期内电动给水泵消耗的电量与电动给水泵出口的流量累计值的比值。</p>
+<p>$$ b_{db}=\frac{W_{db}}{\sum D_{gs}^q} $$</p>
+<p>式中:</p>
+<p>$b_{db}$ —— 电动给水泵单耗,kW·h/t;</p>
+<p>$W_{db}$ —— 电动给水泵消耗的电量,kW·h;</p>
+<p>$\sum D_{gs}^s$ —— 统计期内电动给水泵出口的流量累计值,t。</p>
+<h4 id=524电动给水泵耗电率>5.2.4、电动给水泵耗电率</h4>
+<p>电动给水泵耗电率是指统计期内电动给水泵消耗的电量与机组发电量的百分比。
+对于单元制机组,机组发电量为单元机组发电量。</p>
+<p>$$ L_{db}=\frac{\sum W_{db}}{W_f}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{db}$ —— 电动给水泵耗电率,%。</p>
+<p>对于母管制给水系统的机组,机组发电量为共用该母管制给水系统的机组总发电量。</p>
+<p>$$ L_{db}=\frac{\sum W_{db}}{\sum W_f}\times 100 $$</p>
+<h4 id=525汽动给水泵组效率>5.2.5、汽动给水泵组效率</h4>
+<p>汽动给水泵组的效率是指汽动给水泵组中供给给水泵汽轮机的能量被泵组有效利用的程度。</p>
+<p>$$ \eta_p = \frac{3.6\times P_{sc}}{D_{qb}\times (h_{qb}-h_{qp})\times 100} $$</p>
+<p>式中:</p>
+<p>$\eta_p$ —— 汽动给水泵的效率,%;</p>
+<p>$h_{qb}$ —— 汽动给水泵汽轮机进汽焓值,kJ/kg;</p>
+<p>$h_{qp}$ —— 汽动给水泵汽轮机排汽理想焓值,kJ/kg;</p>
+<p>$D_{qb}$ —— 汽动给水泵汽轮机的进汽流量,t/h。</p>
+<h4 id=526汽动给水泵组汽耗率>5.2.6、汽动给水泵组汽耗率</h4>
+<p>汽动给水泵组汽耗率是指其输出单位功率的汽耗量。</p>
+<p>$$ d_{qb}=\frac{D_{qb}}{P_{sc}} $$</p>
+<p>式中:</p>
+<p>$d_{qb}$ —— 汽动给水泵组的汽耗率,kg/(kW·h)。</p>
+<h3 id=53循环水泵耗电率>5.3、循环水泵耗电率</h3>
+<p>循环水泵耗电率是指统计期内循环水泵耗电量与机组发电量的百分比。
+对于母管制循环水系统,机组发电量为共用该母管制循环水系统的机组总发电量。</p>
+<p>$$ w_{xhb}=\frac{\sum W_{xhb}}{\sum W_f}\times 100 $$</p>
+<p>式中:</p>
+<p>$w_{xhb}$ —— 循环水泵耗电率,%;</p>
+<p>$W_{xhb}$ —— 单台循环水泵耗电量,kW·h。</p>
+<p>对于单元制循环水系统,机组发电量为单元机组发电量。</p>
+<p>$$ w_{xhb}=\frac{\sum W_{xhb}}{W_f}\times 100 $$</p>
+<h3 id=54冷却塔>5.4、冷却塔</h3>
+<h4 id=541空冷塔耗电率>5.4.1、空冷塔耗电率</h4>
+<p>空冷塔耗电率是指统计期内单元机组空冷塔(包括空冷系统水泵、空冷风机等)耗电量与机组发电量的百分比。</p>
+<p>$$ L_k=\frac{W_{kl}}{W_f}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_k$ —— 空冷塔耗电率,%;</p>
+<p>$W_{kl}$ —— 空冷塔耗电量,kW·h。</p>
+<h4 id=542直接空冷凝汽器风机耗电率>5.4.2、直接空冷凝汽器风机耗电率</h4>
+<p>直接空冷凝汽器风机耗电率是指统计期内直接空冷凝汽器风机耗电量与机组发电量的百分比。</p>
+<p>$$ L_{kld}=\frac{\sum W_{kld}}{\sum W_f}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{kld}$ —— 直接空冷凝汽器风机耗电率,%;</p>
+<p>$W_{kld}$ —— 直接空冷凝汽器风机耗电量,kW·h。</p>
+<h4 id=543机力塔耗电率>5.4.3、机力塔耗电率</h4>
+<p>机力塔耗电率是指统计期内全厂的机力塔耗电量与全厂机组发电量的百分比。</p>
+<p>$$ L_{jl}=\frac{\sum W_{jl}}{\sum W_f}\times 100 $$</p>
+<p>式中:</p>
+<p>$L_{jl}$ —— 机力塔耗电率,%;</p>
+<p>$W_{jl}$ —— 机力塔耗电量,kW·h。</p>
+<h4 id=544冷却塔水温降>5.4.4、冷却塔水温降</h4>
+<p>冷却塔水温降是指循环冷却水在冷却塔内水温降低的值。</p>
+<p>$$ \Delta t_t = t_{tj}-t_{tch} $$</p>
+<p>式中:</p>
+<p>$\Delta t_t$ —— 冷却塔水温降,℃;</p>
+<p>$t_{tj}$ ——冷却塔入口水温,在塔的进水管或竖井处测取,℃;</p>
+<p>$t_{tch}$ —— 冷却塔出口水温,在塔的回水沟处测取,℃。</p>
+<h4 id=545湿冷塔冷却幅高>5.4.5、湿冷塔冷却幅高</h4>
+<p>湿冷塔冷却幅高是指湿冷塔出口水温与大气湿球温度$\tau_1$(理论冷却极限)的差值。</p>
+<p>$$ \Delta t_{fg}=t_{tch}-\tau_1 $$</p>
+<p>式中:</p>
+<p>$\Delta t_{fg}$ —— 湿冷冷却塔冷却幅高,℃;</p>
+<p>$\tau_1$ —— 大气湿球温度,℃。</p>
+<h3 id=55加热器技术经济指标>5.5、加热器技术经济指标</h3>
+<h4 id=551加热器上端差>5.5.1、加热器上端差</h4>
+<p>加热器上端差是指加热器(含混合式加热器)进口蒸汽压力对应的饱和温度与水侧出口温度的差值。</p>
+<p>$$ \Delta t=t_{bh}-t_{cs} $$</p>
+<p>式中:</p>
+<p>$\Delta t$ —— 加热器上端差,℃;</p>
+<p>$t_{bh}$ —— 加热器进口蒸汽压力对应的饱和温度,℃;</p>
+<p>$t_{cs}$ —— 加热器的给水(或凝结水)侧出口温度,℃。</p>
+<h4 id=552加热器下端差>5.5.2、加热器下端差</h4>
+<p>加热器下端差是指加热器疏水出口温度与水侧进口温度的差值。</p>
+<p>$$ \Delta t_{xd}=t_{ss}-t_{js} $$</p>
+<p>式中:</p>
+<p>$\Delta t_{xd}$ —— 加热器下端差,℃;</p>
+<p>$t_{ss}$ —— 加热器疏水出口温度,℃;</p>
+<p>$t_{js}$ —— 加热器水给水(或凝结水)侧进口温度,℃。</p>
+<h4 id=553加热器给水温升>5.5.3、加热器给水温升</h4>
+<p>加热器给水温升是指加热器给水出口处温度与进口处温度之差。</p>
+<p>$$ \Delta t_{ns}=t_{cs}-t_{js} $$</p>
+<p>式中:</p>
+<p>$\Delta t_{ns}$ —— 加热器给水温升,℃。</p>
+<h4 id=554高压加热器投入率>5.5.4、高压加热器投入率</h4>
+<p>高压加热器投入率指统计期内高压加热器投入运行小时数与机组运行小时数的百分比。</p>
+<p>$$ 高压加热器投入率=\Big( 1-\frac{\sum 单台高压加热器停运小时数}{高压加热器总台数\times 机组投运小时数} \Big)\times 100 $$</p>
+<h3 id=56凝汽器技术经济指标>5.6、凝汽器技术经济指标</h3>
+<h4 id=561凝汽器冷却水温升>5.6.1、凝汽器冷却水温升</h4>
+<p>凝汽器冷却水温升是指凝汽器出口处冷却水温度与入口处冷却水温度之差。</p>
+<p>$$ \Delta t_{xhs}=t_{xhc}-t_{xhj} $$</p>
+<p>式中:</p>
+<p>$\Delta t_{xhs}$ —— 凝汽器冷却水温升,℃:</p>
+<p>$t_{xhc}$ —— 凝汽器出口处冷却水温度,℃;</p>
+<p>$t_{xhj}$ —— 凝汽器进口处冷却水温度。</p>
+<h4 id=562凝汽器端差>5.6.2、凝汽器端差</h4>
+<p>凝汽器端差是指汽轮机排汽压力对应的饱和温度与凝汽器出口冷却水温度的差值。</p>
+<p>$$ \Delta t_k=t_{bbh}-t_{xhc} $$</p>
+<p>式中:</p>
+<p>$\Delta t_k$ —— 凝汽器端差,℃;</p>
+<p>$t_{bbh}$ —— 汽轮机排汽压力对应的饱和温度,℃。</p>
+<h4 id=563凝结水过冷却度>5.6.3、凝结水过冷却度</h4>
+<p>凝结水过冷却度是指汽轮机排汽压力对应的饱和温度与凝汽器热井中凝结水温度的差值。</p>
+<p>$$ \Delta t_{gl}=t_{bbh}-t_{rj} $$</p>
+<p>式中:</p>
+<p>$\Delta t_{gl}$ —— 凝结水过冷却度,℃;</p>
+<p>$t_{rj}$ —— 凝汽器热井中凝结水温度,℃。</p>
+<h4 id=564胶球清洗装置投入率>5.6.4、胶球清洗装置投入率</h4>
+<p>胶球清洗装置投入率(%)是指统计期内胶球清洗装置正常投入次数,与该装置应投入次数的
+百分比。</p>
+<p>$$ 胶球清洗装置投入率=(正常投入次数/应投入次数)\times 100 $$</p>
+<h4 id=565胶球清洗装置收球率>5.6.5、胶球清洗装置收球率</h4>
+<p>胶球清洗装置收球率(%)是指统计期内,每次胶球投入后实际收回胶球数与投入胶球数的百分比。</p>
+<p>$$ 收球率=(收回胶球数/投入胶球数)\times 100 $$</p>
+<h2 id=6燃气-蒸汽联合循环技术经济指标>6、燃气-蒸汽联合循环技术经济指标</h2>
+<p>(待补充……)</p>
+<h2 id=7综合技术经济指标>7、综合技术经济指标</h2>
+<h3 id=71供热指标>7.1、供热指标</h3>
+<h4 id=711供热比>7.1.1、供热比</h4>
+<p>供热比是指统计期内汽轮机组向外供出的热量与汽轮机组热耗量的百分比，<strong>不适用</strong>于锅炉向外直供蒸汽的情况。</p>
+<p>$$\alpha = \frac{\sum Q_{gr}}{\sum Q_{sr}} \times 100$$</p>
+<p>式中：</p>
+<p>$\alpha$ —— 供热比，%；</p>
+<p>$\sum Q_{gr}$ —— 统计期内汽轮机组向外供出的热量，GJ；</p>
+<p>$\sum Q_{sr}$ —— 统计期内汽轮机组总热耗量，GJ。</p>
+<h4 id=712供热发电比>7.1.2、供热发电比</h4>
+<p>供热发电比是指统计期内汽轮机组向外供出的热量与发电量的比值。</p>
+<p>$$I=\frac{\sum Q_{gr}}{W_f \times 10^{-3}}$$</p>
+<p>式中：</p>
+<p>$I$ —— 供热发电比，GJ/(MW·h)；</p>
+<p>$W_f$ —— 发电量，kW·h。</p>
+<h4 id=713热电比>7.1.3、热电比</h4>
+<p>热电比是指统计期内电厂向外供出的热量与供电量的当量热量的百分比。</p>
+<p>$$R=\frac{\sum Q_{wgr}}{3600W_g \times 10^{-6}} \times 100$$</p>
+<p>$$W_g=W_f-W_{cy}$$</p>
+<p>式中：</p>
+<p>$R$ —— 热电比，%；</p>
+<p>$\sum Q_{wgr}$ —— 电厂对外供出的热量，GJ；</p>
+<p>$W_g$ —— 供电量，kW·h。</p>
+<h3 id=72厂用电率>7.2、厂用电率</h3>
+<h4 id=721纯凝汽电厂生产厂用电率>7.2.1、纯凝汽电厂生产厂用电率</h4>
+<p>纯凝汽电厂生产厂用电率指统计期内纯凝汽电厂厂用电量与发电量的百分比。</p>
+<p>$$L_{cy}=\frac{W_{cy}}{W_f} \times 100 = \frac{W_h-W_{kc}}{W_f} \times 100$$</p>
+<p>式中：</p>
+<p>$L_{cy}$ —— 生产厂用电率，%；</p>
+<p>$W_{cy}$ —— 统计期内厂用电量，kW·h；</p>
+<p>$W_h$ —— 统计期内总耗用电量，kW·h；</p>
+<p>$W_{kc}$ —— 统计期内按规定应扣除的电量，kW·h。</p>
+<p>下列用电量不计入厂用电的计算:</p>
+<ul>
+<li>新设备或大修后设备的烘炉、暖机、空载运行的电量。</li>
+<li>新设备在未正式移交生产前的带负荷试运行期间耗用的电量。</li>
+<li>计划大修以及基建、更改工程施工用的电量。</li>
+<li>发电机作调相机运行时耗用的电量。</li>
+<li>厂外运输用自备机车、船舶等耗用的电量。</li>
+<li>输配电用的升、降压变压器(不包括厂用变压器)、变波机、调相机等消耗的电量。</li>
+<li>非生产用(修配车间、副业、综合利用等)的电量。</li>
+</ul>
+<h4 id=722供热电厂生产厂用电率>7.2.2、供热电厂生产厂用电率</h4>
+<h5 id=7221供热厂用电率>7.2.2.1、供热厂用电率</h5>
+<p>供热厂用电率是指统计期内供热用的厂用电量与发电量的百分比。</p>
+<p>$$L_{rcy}=\frac{W_r}{W_f}\times 100$$</p>
+<p>$$W_r=\frac{\alpha}{100}(W_{cy}-W_{cr})+W_{cr}$$</p>
+<p>式中：</p>
+<p>$L_{rcy}$ —— 供热厂用电率，%；</p>
+<p>$W_r$ —— 供热耗用的厂用电量，kW·h；</p>
+<p>$W_{cr}$ —— 纯热网用的厂用电量，如热网循环泵等只与供热有关的设备用电量，kW·h。</p>
+<h5 id=7222发电厂用电率>7.2.2.2、发电厂用电率</h5>
+<p>发电厂用电率指统计期内发电用的厂用电量与发电量的百分比。</p>
+<p>$$L_{fcy}=\frac{w_d}{w_f}\times 100$$</p>
+<p>$$W_d=W_{cy}-W_r$$</p>
+<p>式中：</p>
+<p>$L_{fcy}$ —— 发电厂用电率，%；</p>
+<p>$W_d$ —— 发电用的厂用电量，kW·h。</p>
+<h5 id=7223供热电厂生产厂用电率>7.2.2.3、供热电厂生产厂用电率</h5>
+<p>供热电厂生产厂用电率指统计期内供热电厂的发电厂用电率与供热厂用电率之和。</p>
+<p>$$L_{cy}=L_{fcy}+L_{rcy}$$</p>
+<h5 id=7224供热耗电率>7.2.2.4、供热耗电率</h5>
+<p>供热耗电率是指统计期内机组每对外供热1GJ的热量所消耗的电量。</p>
+<p>$$L_{rhd}=\frac{W_r}{\sum Q_{gr}}$$</p>
+<p>式中：</p>
+<p>$L_{rhd}$ —— 供热耗电率，kW·h/GJ。</p>
+<h4 id=723综合厂用电率>7.2.3、综合厂用电率</h4>
+<p>综合厂用电率是指统计期内考虑有外购电情况下全厂发电量和上网电量的差值与全厂发电量的百分比。</p>
+<p>$$ L_{zh}=\frac{W_f-W_{gk}+W_{wg}}{W_f}\times 100 $$</p>
+<p>式中：</p>
+<p>$ L_{zh} $ —— 综合厂用电率，%；</p>
+<p>$ W_{gk} $ —— 全厂的关口电量，kW·h；</p>
+<p>$ W_{wg} $ —— 全厂的外购电量，kW·h。</p>
+<h3 id=73电厂效率>7.3、电厂效率</h3>
+<h4 id=731管道效率>7.3.1、管道效率</h4>
+<p>管道效率是指汽轮机从锅炉得到的热量与锅炉输出的热量的百分比。</p>
+<p>$$ \eta_{gd}=\frac{\sum Q_{sr}}{\sum Q_l}\times 100 $$</p>
+<p>式中：</p>
+<p>$ \eta_{gd} $ —— 管道效率，%；</p>
+<p>$ \sum Q_l $ —— 统计期内的锅炉输出总热量，指主、再热蒸汽等管道锅炉侧出口蒸汽所包含热量，GJ。</p>
+<h4 id=732综合热效率>7.3.2、综合热效率</h4>
+<p>综合热效率是指统计期内供热量和供电量的当量热量之和与总标准煤耗量对应热量的百分比。</p>
+<p>正平衡计算式为：</p>
+<p>$$ \eta_0=\frac{\sum Q_{gr}+3600W_g\times 10^{-6}}{7000R_h\times B_b\times 10^{-3}}\times 100 $$</p>
+<p>反平衡计算式为：</p>
+<p>$$ \eta_0=\frac{\eta_g}{100}\times\frac{\eta_{gd}}{100}\times\bigg[\frac{\alpha}{100}+\Big(1-\frac{\alpha}{100}\Big)\frac{\eta_q}{100}\bigg]\times 100 $$</p>
+<p>式中：</p>
+<p>$\eta_0$ —— 综合热效率，%；</p>
+<p>$B_b$ —— 统计期内耗用标准煤量，t；</p>
+<p>$R_h$ —— 热功当量值，根据GB/T2589—2008，本标准取4.1868kJ/kcal；</p>
+<p>$7000$ —— 标准煤热量，kcal。</p>
+<h3 id=74发电供热煤耗>7.4、发电、供热煤耗</h3>
+<h4 id=741标准煤量>7.4.1、标准煤量</h4>
+<p>标准煤量是指统计期内用于生产所耗用的燃料折算至标准煤的燃料量。</p>
+<p>a) 正平衡法</p>
+<p>$$ B_b=B_h-B_{kc} $$</p>
+<p>式中：</p>
+<p>$B_h$ —— 统计期内耗用总标准煤量，t；</p>
+<p>$B_{kc}$ —— 统计期内应扣除的非生产用标准煤量，t。</p>
+<p>下列非生产用标准煤量应扣除:</p>
+<ul>
+<li>新设备或大修后设备的烘炉、暖机、空载运行的燃料。</li>
+<li>新设备在未移交生产前的带负荷试运行期间,耗用的燃料。</li>
+<li>计划大修以及基建、更改工程施工用的燃料。</li>
+<li>发电机做调相运行时耗用的燃料。</li>
+<li>厂外运输用自备机车、船舶等耗用的燃料。</li>
+<li>非生产用燃料。</li>
+</ul>
+<p>b) 反平衡法</p>
+<p>$$ B_b=\frac{10^5\times\sum Q_l}{\eta_g\times7000\times R_h} $$</p>
+<h4 id=742发电煤耗>7.4.2、发电煤耗</h4>
+<p>发电煤耗是指统计期内机组(或电站)每发出1kW·h电能平均耗用的标准煤量。</p>
+<p>a) 用标准煤量计算</p>
+<p>$$ b_f=\frac{B_b\times\big( 1-\frac{\alpha}{100} \big)}{W_f}\times 10^6 $$</p>
+<p>式中：</p>
+<p>$b_f$ —— 发电煤耗，g/(kW·h)。</p>
+<p>b) 用机组发电热效率计算</p>
+<p>$$ b_f = \frac{q}{\eta_g \times \eta_{gd} \times 7000 \times R_h}\times 10^7 = \frac{3600}{\eta_g \times \eta_{gd} \times \eta_q \times 7000 \times R_h}\times 10^9 $$</p>
+<p>注:上述公式宜适用于机组某一稳定工况的计算。</p>
+<h4 id=743供热煤耗>7.4.3、供热煤耗</h4>
+<p>供热煤耗是指统计期内机组每对外供热1GJ的热量所消耗的标准煤量。</p>
+<p>$$ b_r = \frac{B_b\times\alpha}{\sum Q_{gr}}\times 10 $$</p>
+<p>式中：</p>
+<p>$b_r$ —— 供热煤耗，kg/GJ。</p>
+<h3 id=75供电煤耗>7.5、供电煤耗</h3>
+<h4 id=751供电煤耗>7.5.1、供电煤耗</h4>
+<p>供电煤耗是指统计期内汽轮发电机组每供出1kW·h电能平均耗用的标准煤量。</p>
+<p>$$ b_g=\frac{b_f}{1-\frac{L_{fcy}}{100}} $$</p>
+<p>式中：</p>
+<p>$b_g$ —— 供电煤耗，g/(kW·h)。</p>
+<h4 id=752综合供电煤耗上网煤耗>7.5.2、综合供电煤耗(上网煤耗)</h4>
+<p>综合供电煤耗(上网煤耗)是指统计期内电站每向电网提供1kW·h电能平均耗用的标准煤量。</p>
+<p>$$ b_{zh}=\frac{b_f}{1-\frac{L_{zh}}{100}} $$</p>
+<p>式中：</p>
+<p>$b_{zh}$ —— 综合供电煤耗，g/(kW·h)。</p>
+<h3 id=76运行负荷率>7.6、运行负荷率</h3>
+<p>运行负荷率是指统计期内机组运行的平均负荷与额定容量的百分比。</p>
+<p>$$ X=\frac{P_{pj}}{P_e}\times 100 $$</p>
+<p>式中：</p>
+<p>$X$ —— 运行负荷率，%；</p>
+<p>$P_{pj}$ —— 机组平均负荷，MW；</p>
+<p>$P_e$ —— 机组额定容量，MW。</p>
+<h2 id=8其他技术经济指标>8、其他技术经济指标</h2>
+<p>(待补充……)</p>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2023-02-02</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/%E7%81%AB%E7%94%B5%E5%8E%82/>火电厂</a>,&nbsp;<a href=/tags/%E7%BB%8F%E6%B5%8E%E6%8C%87%E6%A0%87/>经济指标</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/posts/colors/ class=prev rel=prev title=颜色名称><i class="fas fa-angle-left fa-fw"></i>颜色名称</a></div>
+</div>
+<div id=comments><div id=utterances></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://utteranc.es/>Utterances</a>.
+</noscript></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021 - 2023</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/katex/copy-tex.min.css><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/auto-render.min.js></script><script type=text/javascript src=/lib/katex/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{utterances:{darkTheme:"github-dark",issueTerm:"pathname",label:"评论",lightTheme:"github-light",repo:"simumis/utterance_comment"}},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>
