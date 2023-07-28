@@ -16,7 +16,7 @@
 <meta name=application-name content="Simumis">
 <meta name=apple-mobile-web-app-title content="Simumis"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.com/posts/dlt904/><link rel=prev href=https://simumis.com/posts/colors/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"《火力发电厂技术经济指标计算方法》学习记录","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.com\/posts\/dlt904\/"},"genre":"posts","keywords":"火电厂, 经济指标","wordcount":10894,"url":"https:\/\/simumis.com\/posts\/dlt904\/","datePublished":"2023-02-02T15:29:34+08:00","dateModified":"2023-02-02T15:29:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Simumis"},"author":{"@type":"Person","name":"Simumis"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.com/posts/dlt904/><link rel=prev href=https://simumis.com/posts/colors/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"《火力发电厂技术经济指标计算方法》学习记录","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.com\/posts\/dlt904\/"},"genre":"posts","keywords":"火电厂, 经济指标","wordcount":11437,"url":"https:\/\/simumis.com\/posts\/dlt904\/","datePublished":"2023-02-02T15:29:34+08:00","dateModified":"2023-02-02T15:29:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Simumis"},"author":{"@type":"Person","name":"Simumis"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -84,8 +84,8 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">《火力发电厂技术经济指标计算方法》学习记录</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Simumis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E5%AD%A6%E4%B9%A0/><i class="far fa-folder fa-fw"></i>学习</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2023-02-02>2023-02-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10894 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 22 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2023-02-02>2023-02-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 11437 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 23 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -161,7 +161,16 @@
 <li><a href=#76运行负荷率>7.6、运行负荷率</a></li>
 </ul>
 </li>
-<li><a href=#8其他技术经济指标>8、其他技术经济指标</a></li>
+<li><a href=#8其他技术经济指标>8、其他技术经济指标</a>
+<ul>
+<li><a href=#81补水率>8.1、补水率</a></li>
+<li><a href=#812生产补水率>8.1.2、生产补水率</a></li>
+<li><a href=#813式中d_fd发电补水量t>8.1.3、式中:D_{fd}——发电补水量,t。</a></li>
+<li><a href=#814汽水损失率>8.1.4、汽水损失率</a></li>
+<li><a href=#815锅炉吹灰器投入率>8.1.5、锅炉吹灰器投入率</a></li>
+<li><a href=#816-锅-炉排污率>8.1.6 锅 炉排污率</a></li>
+</ul>
+</li>
 </ul>
 </nav></div>
 </div><div class=content id=content><p>《火力发电厂技术经济指标计算方法》（DL/T 904-2015）规定了火力发电厂技术经济指标的计算方法，列出了诸多计算公式。学习过程中深感公式之复杂，特列于此处以作提示及备忘。</p>
@@ -812,7 +821,37 @@ $h_{qs}$ ——间接供热时蒸汽的疏水焓值,kJ/kg。</p>
 <p>$P_{pj}$ —— 机组平均负荷，MW；</p>
 <p>$P_e$ —— 机组额定容量，MW。</p>
 <h2 id=8其他技术经济指标>8、其他技术经济指标</h2>
-<p>(待补充……)</p>
+<h3 id=81补水率>8.1、补水率</h3>
+<h4 id=811全厂补水率>8.1.1、全厂补水率</h4>
+<p>全厂补水率是指统计期内补入锅炉、汽轮机设备及其热力循环系统的除盐水总量与锅炉实际总蒸发量的百分比。</p>
+<h3 id=812生产补水率>8.1.2、生产补水率</h3>
+<p>生产补水率是指统计期内补入锅炉、汽轮机及其热力循环水系统用作发电、供热等的除盐水量占锅炉实际总蒸发量的百分比。</p>
+<p>$$ L_{sc}=L_{fd}+L_{gr}+L_{fd}^P{f} $$</p>
+<p>式中：</p>
+<p>$L_{sc}$ —— 生产补水率，%；</p>
+<p>$L_{fd}$ —— 发电补水率，%；</p>
+<p>$L_{gr}$ —— 供热补水率，%；</p>
+<h3 id=813式中d_fd发电补水量t>8.1.3、式中:D_{fd}——发电补水量,t。</h3>
+<p>发电补水率是指统计期内汽、水损失水量,锅炉排污量,空冷塔补水量,事故放水(汽)损失量,机、炉启动用水损失量,电厂自用汽(水)量等总计占锅炉实际总蒸发量的百分比。</p>
+<p>L_{fd}=\fracP{D_{fd}}{\simD}\times 100</p>
+<p>式中：</p>
+<p>D_{fd} ——发电补水量 , t 。</p>
+<h3 id=814汽水损失率>8.1.4、汽水损失率</h3>
+<p>汽水损失率是指统计期内锅炉、汽轮机及其热力循环系统由于泄漏引起的汽、水损失量占锅炉实际总蒸发量的百分比。</p>
+<p>L_{qs}=\frac{D_{qs}}{\sim D} \times 100</p>
+<p>D_{qs}=D_{fd}-(D_{wq}+D_{zy}+D_{ws}+D_{ch}+D_{pw})+D_{hs}</p>
+<p>式中：</p>
+<p>L_{qs} ——汽水损失率, % ;</p>
+<p>D_{wq} ——对外供汽量, t ;</p>
+<p>D_{zy} ——热力设备及其系统自用汽(水) 量 , t ;</p>
+<p>D_{ws} ——对外供水量, t ;</p>
+<p>D_{ch} ——锅炉吹灰用汽量, t ;</p>
+<p>D_{pw} ——锅炉排污水量, t ;</p>
+<p>D_{hs} ——外部回到热力系统的水量, t 。</p>
+<h3 id=815锅炉吹灰器投入率>8.1.5、锅炉吹灰器投入率</h3>
+<p>吹灰器投入率是指统计期内吹灰器正常投入台次,与该装置应投入台次之比值的百分数(%)。</p>
+<p>吹灰器投入率=(正常投入台次/应投入台次)\times 100</p>
+<h3 id=816-锅-炉排污率>8.1.6 锅 炉排污率</h3>
 </div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
