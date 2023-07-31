@@ -16,7 +16,7 @@
 <meta name=application-name content="Simumis">
 <meta name=apple-mobile-web-app-title content="Simumis"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.com/posts/dlt904/><link rel=prev href=https://simumis.com/posts/colors/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"《火力发电厂技术经济指标计算方法》学习记录","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.com\/posts\/dlt904\/"},"genre":"posts","keywords":"火电厂, 经济指标","wordcount":11551,"url":"https:\/\/simumis.com\/posts\/dlt904\/","datePublished":"2023-02-02T15:29:34+08:00","dateModified":"2023-02-02T15:29:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Simumis"},"author":{"@type":"Person","name":"Simumis"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simumis.com/posts/dlt904/><link rel=prev href=https://simumis.com/posts/colors/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"《火力发电厂技术经济指标计算方法》学习记录","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simumis.com\/posts\/dlt904\/"},"genre":"posts","keywords":"火电厂, 经济指标","wordcount":13319,"url":"https:\/\/simumis.com\/posts\/dlt904\/","datePublished":"2023-02-02T15:29:34+08:00","dateModified":"2023-02-02T15:29:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Simumis"},"author":{"@type":"Person","name":"Simumis"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -84,8 +84,8 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">《火力发电厂技术经济指标计算方法》学习记录</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Simumis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E5%AD%A6%E4%B9%A0/><i class="far fa-folder fa-fw"></i>学习</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2023-02-02>2023-02-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 11551 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 24 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2023-02-02>2023-02-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 13319 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 27 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -168,9 +168,23 @@
 <li><a href=#813发电补水率>8.1.3、发电补水率</a></li>
 <li><a href=#814汽水损失率>8.1.4、汽水损失率</a></li>
 <li><a href=#815锅炉吹灰器投入率>8.1.5、锅炉吹灰器投入率</a></li>
-<li><a href=#816-锅炉排污率>8.1.6 锅炉排污率</a></li>
+<li><a href=#816锅炉排污率>8.1.6、锅炉排污率</a></li>
+<li><a href=#817电厂自用汽水量>8.1.7、电厂自用汽(水)量</a></li>
+<li><a href=#818供热补水率>8.1.8、供热补水率</a></li>
+<li><a href=#819非发电补水率>8.1.9、非发电补水率</a></li>
+<li><a href=#8110非生产补水率>8.1.10、非生产补水率</a></li>
 </ul>
 </li>
+<li><a href=#82发电用水>8.2、发电用水</a>
+<ul>
+<li><a href=#821单位发电量取水量发电水耗>8.2.1、单位发电量取水量(发电水耗)</a></li>
+<li><a href=#822水的重复利用率>8.2.2、水的重复利用率</a></li>
+<li><a href=#823水灰比>8.2.3、水灰比</a></li>
+<li><a href=#824化学总自用水率>8.2.4、化学总自用水率</a></li>
+</ul>
+</li>
+<li><a href=#83供热管道补水率>8.3、供热管道补水率</a></li>
+<li><a href=#84发电油耗率>8.4、发电油耗率</a></li>
 </ul>
 </nav></div>
 </div><div class=content id=content><p>《火力发电厂技术经济指标计算方法》（DL/T 904-2015）规定了火力发电厂技术经济指标的计算方法，列出了诸多计算公式。学习过程中深感公式之复杂，特列于此处以作提示及备忘。</p>
@@ -851,13 +865,84 @@ $h_{qs}$ ——间接供热时蒸汽的疏水焓值,kJ/kg。</p>
 <h3 id=815锅炉吹灰器投入率>8.1.5、锅炉吹灰器投入率</h3>
 <p>吹灰器投入率是指统计期内吹灰器正常投入台次,与该装置应投入台次之比值的百分数(%)。</p>
 <p>$$ 吹灰器投入率=(正常投入台次/应投入台次)\times 100 $$</p>
-<h3 id=816-锅炉排污率>8.1.6 锅炉排污率</h3>
+<h3 id=816锅炉排污率>8.1.6、锅炉排污率</h3>
 <p>锅炉排污率是指锅炉运行中排污量与锅炉实际蒸发量的百分比。</p>
 <p>$$ L_{pw}=\frac{D_{pw}}{D}\times 100 $$</p>
 <p>式中:</p>
 <p>$D_{pw}$——锅炉的排污量，t/h;</p>
 <p>$L_{pw}$——锅炉排污率，%。</p>
 <p>如有锅炉排污计量装置的可以直接测量。不能直接测量的可以通过化学盐平衡法或补水率法进行计算。</p>
+<p>a) 化学盐平衡是指给水带入的盐分应等于蒸汽带走的盐分与随同排污水排走的盐分之和。由此可以通过对给水、排污水(炉水)及饱和蒸汽中盐分计算排污率。</p>
+<p>$$ L_{pw}=\frac{S_{gs}-S_{b}}{S_{pw}-S_{gs}} \times 100 $$</p>
+<p>式中:</p>
+<p>$S_{gs}$——给水中的盐分含量,mg/kg;</p>
+<p>$S_b$——饱和蒸汽中的盐分含量,mg/kg;</p>
+<p>$S_p$——排污水中的盐分含量,一般情况下可以视作等于炉水的盐分含量,mg/kg。</p>
+<p>b) 补水率法是指汽轮机维持恒定工况时,通过对锅炉开关排污时机组补水率的变化来计算锅炉排污率。</p>
+<p>$$ L_{pw}=\Delta D_{bh} $$</p>
+<p>式中:</p>
+<p>$\Delta D_{bh}$——机组的补水变化率,%。</p>
+<h3 id=817电厂自用汽水量>8.1.7、电厂自用汽(水)量</h3>
+<p>电厂自用汽(水)量是指统计期内不能回收的锅炉吹灰、燃料雾化、仪表伴热、生产厂房采暖、厂区办公楼采暖、燃料解冻、油区用汽、机组闭式冷却水及发电机定子冷却水的补充水或换水用除盐水等。</p>
+<h3 id=818供热补水率>8.1.8、供热补水率</h3>
+<p>供热补水率是指统计期内热电厂向外供热时,没有回收的水(汽)量占锅炉总蒸发量的百分比。</p>
+<p>$$ L_{gr}=\frac{D_{gr}}{\sum D} \times 100 $$</p>
+<p>式中:</p>
+<p>$L_{gr}$——供热(汽)补水率,%;</p>
+<p>$D_{gr}$——供热时凝结水损失量,t。</p>
+<h3 id=819非发电补水率>8.1.9、非发电补水率</h3>
+<p>非发电补水率是指统计期内不参加热力循环的用后直接排掉的除盐水量占锅炉实际总蒸发量的百分比。如凝汽器灌水查漏用水、锅炉酸洗后清洗用水、发电设备检修用除盐水、备用期间因水质不合格时放掉的除盐水等。</p>
+<p>$$ L_{fd}^f=\frac{D_{fd}^f}{\sum D} \times 100 $$</p>
+<p>式中:</p>
+<p>$L_{fd}^f$——非发电用水率,%;</p>
+<p>$D_{fd}^f$——非发电用水量,t。</p>
+<h3 id=8110非生产补水率>8.1.10、非生产补水率</h3>
+<p>非生产补水率是指统计期内因厂区外非发电生产直接供热(如电厂生活区供热、厂区外食堂、浴室用汽等),需要补充的除盐水占锅炉实际总蒸发量的百分比。</p>
+<p>$$ L_{sc}^f=\frac{D_{sc}^f}{\sum D} \times 100 $$</p>
+<p>式中:</p>
+<p>$L_{sc}^f$——非生产补水率,%;</p>
+<p>$D_{sc}^f$——非生产补水量,t。</p>
+<h2 id=82发电用水>8.2、发电用水</h2>
+<h3 id=821单位发电量取水量发电水耗>8.2.1、单位发电量取水量(发电水耗)</h3>
+<p>单位发电量取水量是指火力发电企业生产每单位发电量需要从各种常规水资源提取的水量。取水量包括取自地表水(以净水厂供水计量)、地下水、城镇供水工程,以及企业从市场购得的其他水或水的产品(如蒸汽、热水、地热水等),不包括企业自取的海水、苦咸水以及取水用于生活区和外供水产品(如蒸汽、热水、地热水等)的水量。采用直流冷却系统的企业取水量不包括从江、河、湖等水体取水用于凝汽器及其他换热器开式冷却并排回原水体的水量;企业从直流冷却(不包括海水)系统中取水用做其他用途,则该部分应计入企业取水范围。</p>
+<p>$$ d_{fd}=\frac{G_{xs}}{W_f} $$</p>
+<p>式中:</p>
+<p>$d_{fd}$——单位发电量取水量(发电水耗),kg/(kW·h);</p>
+<p>$G_{xs}$——发电取水量,kg。</p>
+<h3 id=822水的重复利用率>8.2.2、水的重复利用率</h3>
+<p>水的重复利用率是指统计期内,生产过程中使用的重复利用水量占电厂总用水量的百分比。</p>
+<p>$$ L_{cf}=\frac{D_{cf}}{D_{zs}} \times 100 $$</p>
+<p>式中:
+$L_{cf}$——水的重复利用率,%;</p>
+<p>$D_{cf}$——水的重复利用量,t;</p>
+<p>$D_{zs}$——电厂总用水量,等于发电取水量与水的重复利用量之和,t。</p>
+<h3 id=823水灰比>8.2.3、水灰比</h3>
+<p>水灰比是指火力发电厂水力除灰系统中输送每吨灰渣所消耗的水量。可以用实测法或用下式计算。</p>
+<p>$$ A_{zl}=\frac{G_{zls}}{G_{zl}} $$</p>
+<p>$$ G_{zl}=A_{ar} \times B_{rl} \times (1+\overline{C}) $$</p>
+<p>式中:</p>
+<p>$A_{zl}$——水与灰、渣的重量比;</p>
+<p>$G_{zls}$——水力输送灰、渣时的用水量,t;</p>
+<p>$G_{zl}$——水力输送的灰、渣量,t;</p>
+<p>$B_{rl}$——入炉煤总量,t;</p>
+<p>$\overline{C}$——灰渣中平均碳量与燃煤灰量之百分比,%。</p>
+<h3 id=824化学总自用水率>8.2.4、化学总自用水率</h3>
+<p>化学总自用水率是指进入化学预处理的生水量与供给机组及系统的水量之差与生水量的百分比。供给机组及系统的水量包括除盐水和供给公用系统(如消防水系统、工业水系统、除尘水系统等)的清水量。</p>
+<p>$$ 化学总自用水率=\frac{生水量-供给机组及系统的水量}{生水量} \times 100 % $$</p>
+<p>化学总自用水量包括化学预处理自用水量和化学除盐自用水量。</p>
+<h2 id=83供热管道补水率>8.3、供热管道补水率</h2>
+<p>供热管道补水率是指由于对外供热管道损失造成供、回水量不平衡,补充水量占供水量的百分比。</p>
+<p>$$ L_{rgd}=\frac{D_{rgd}}{\sum D_i} \times 100 $$</p>
+<p>式中:</p>
+<p>$L_{rgd}$——供热管道补水率,%;</p>
+<p>$D_{rgd}$——供热管道补水量,t。</p>
+<h2 id=84发电油耗率>8.4、发电油耗率</h2>
+<p>发电油耗率是指统计期内单位发电量消耗的燃油量(含点火及助燃用油)。</p>
+<p>$$ L_{yh}=\frac{B_o}{W_f \times 10^{-8}} $$</p>
+<p>式中:</p>
+<p>$L_{yh}$——发电油耗率,t/(亿kW·h);</p>
+<p>$B_o$——燃油量,t。</p>
+<hr>
 </div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
